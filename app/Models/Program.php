@@ -24,7 +24,7 @@ class Program extends Model
     }
     public function programAvatar()
     {
-        return asset('images/programs/' . $this->image) ;
+        return asset( 'storage/images/programs/' . $this->image ) ;
     }
 
 }
