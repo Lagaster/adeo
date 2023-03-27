@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         @yield('title')
     </title>
-      <!-- CSRF Token -->
-      <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -16,14 +17,42 @@
     <link rel="stylesheet" href="{{ asset('admin_asset/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('admin_asset/dist/css/adminlte.min.css') }}">
-     <!-- Scripts -->
-     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-     @stack('css')
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{ asset('admin_asset/plugins/toastr/toastr.min.css') }}">
+
+    <style>
+        .message-container{
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 2;
+            right: 0;
+            z-index: 9999;
+        }
+        .message{
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 9999;
+        }
+    </style>
+
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @stack('css')
+
+
+
 </head>
 
 <body class="hold-transition sidebar-mini">
+      
+
     <!-- Site wrapper -->
-    <div class="wrapper">
+    <div class="wrapper"  id="app">
+
+      
+
         <!-- Navbar -->
         @include('admin_side.partials.navbar')
         <!-- /.navbar -->
@@ -49,26 +78,28 @@
                         <a href="#" class="d-block">{{ Auth::User()->name }}</a>
                     </div>
                 </div>
-
-
-
                 <!-- Sidebar Menu -->
                 @include('admin_side.partials.sidebar')
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
         </aside>
+        <div class="container message-container">
+              <!-- Messages -->
+        @include('messages')
+        </div>
 
         <!-- Content Wrapper. Contains page content -->
-       @yield('content')
+        @yield('content')
         <!-- /.content-wrapper -->
 
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
-                <b>{{ config('app.name') }}</b> 
+                <b>{{ config('app.name') }}</b>
             </div>
             <strong>
-                &copy; {{ date('Y') }}  Developed With <i class="fas fa-heart text-danger"></i> By <a href="https://www.lagaster.org" target="_blank">Lagaster LTD</a>
+                &copy; {{ date('Y') }} Developed With <i class="fas fa-heart text-danger"></i> By <a
+                    href="https://www.lagaster.org" target="_blank">Lagaster LTD</a>
             </strong>
         </footer>
 
@@ -86,8 +117,12 @@
     <script src="{{ asset('admin_asset/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('admin_asset/dist/js/adminlte.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- AdminLTE for demo purposes -->
     {{-- <script src="{{ asset('admin_asset/dist/js/demo.js') }}"></script> --}}
+
+    <!-- Toastr -->
+    <script src="{{ asset('admin_asset/plugins/toastr/toastr.min.js') }}"></script>
     @stack('js')
 </body>
 

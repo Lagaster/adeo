@@ -25,7 +25,7 @@
     @stack('css')
 </head>
 <body class="hold-transition login-page">
-  <div class="login-box">
+  <div class="login-box" id="app">
       <div class="login-logo">
           <a href="{{ url('/') }}"><b>ADEO</b></a>
       </div>
