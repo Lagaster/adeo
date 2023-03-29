@@ -29,13 +29,3 @@
 
 
 </div>
-<script>
-        function flash(){
-            document.getElementById("message").style.animationDuration = "2s";
-            document.getElementById('message').style.display = "none";
-
-        }
-
-        setTimeout(flash, 6400);
-
-</script>

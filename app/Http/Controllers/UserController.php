@@ -62,7 +62,27 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $data = $request->validated();
+        // validate $data['current_password'] against $user->password
+        if (!password_verify($data['current_password'], $user->password)) {
+            return redirect()->back()->with('error', 'Current password is incorrect');
+        }
+        // check if password is to be updated
+        if ($data['password']) {
+            $data['password'] = bcrypt($data['password']);
+        }else{
+            unset($data['password']);
+        }
+        // check if image is to be updated
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('storage/images/users/'), $imageName);
+            $data['image'] = $imageName;
+        }else{
+            unset($data['image']);
+        }
+        $user->update($data);
+        return redirect()->back()->with('success', 'User updated successfully');
     }
 
     /**
@@ -70,6 +90,16 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        // TODO: Delete user's image
+        $imageExists = file_exists(public_path('storage/images/users/'.$user->image));
+        if ($imageExists) {
+            unlink(public_path('storage/images/users/'.$user->image));
+        }
+
+        $user->delete();
+        return response()->json([
+            'status' => true,
+            'message' => 'User deleted successfully'
+        ]);
     }
 }

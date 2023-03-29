@@ -90,7 +90,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4 ">
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="brand-link">
-                <img src="{{ asset('admin_asset/dist/img/AdminLTELogo.png') }}" alt="ADEO Logo"
+                <img src="#" alt="ADEO Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light"> ADEO</span>
             </a>
@@ -100,8 +100,8 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset('admin_asset/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
-                            alt="User Image">
+                        <img src="{{ auth()->user()->avatarView() }}" class="img-circle elevation-2"
+                            alt="{{ auth()->user()->name }}">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">{{ Auth::User()->name }}</a>
@@ -193,6 +193,16 @@
             })
         }
     </script>
+    <script>
+        function flash(){
+            document.getElementById("message").style.animationDuration = "2s";
+            document.getElementById('message').style.display = "none";
+
+        }
+
+        setTimeout(flash, 6400);
+
+</script>
 
     @stack('js')
 </body>
