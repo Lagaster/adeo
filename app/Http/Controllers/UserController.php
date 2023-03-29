@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Notification;
 
 class UserController extends Controller
 {
@@ -22,7 +23,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin_side.users.create');
     }
 
     /**
@@ -30,7 +31,14 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        //
+        $data = $request->validated();
+        $data['password'] = bcrypt('password');
+        tap(User::query()->create($data), function (User $user) {
+            // TODO: Send email to user
+           $user->notify(new \App\Notifications\NewUserNotification($user));
+        });
+        return redirect()->route('users.index')->with('success', 'User created successfully');
+        
     }
 
     /**
@@ -38,7 +46,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('admin_side.users.show', compact('user'));
     }
 
     /**
