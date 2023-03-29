@@ -13,10 +13,22 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('programs.index') }}" class="nav-link">
+            <a href="{{ route('programs.index') }}" class="
+            {{ Request::is('admin/programs*') ? 'active' : ''  }}
+            nav-link">
                 <i class="fa fa-tasks" aria-hidden="true"></i>
                 <p>
                     Programs
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('users.index') }}" class="
+            {{ Request::is('admin/users*') ? 'active' : '' }}
+            nav-link">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                <p>
+                    Users
                 </p>
             </a>
         </li>

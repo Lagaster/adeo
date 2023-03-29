@@ -35,6 +35,35 @@
             right: 0;
             z-index: 9999;
         }
+        #logout-link{
+            /* background: #383635; */
+            border-radius: 1rem;
+            border: 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 400;
+            text-align: left;
+            width: 100%;
+            display: block;
+            margin-bottom: 0;
+            transition: all 0.3s ease-in-out;
+            
+        }
+        #logout-link:hover{
+            background: #252423;
+            border-radius: 1rem;
+            border: 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 400;
+            text-align: left;
+            width: 100%;
+            display: block;
+            margin-bottom: 0;
+            transition: all 0.3s ease-in-out;
+            color: #fff;
+        }
+        
     </style>
 
     <!-- Scripts -->
@@ -58,7 +87,7 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4 ">
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="brand-link">
                 <img src="{{ asset('admin_asset/dist/img/AdminLTELogo.png') }}" alt="ADEO Logo"
@@ -81,8 +110,28 @@
                 <!-- Sidebar Menu -->
                 @include('admin_side.partials.sidebar')
                 <!-- /.sidebar-menu -->
+                <!-- /.sidebar -->
             </div>
             <!-- /.sidebar -->
+            <!-- logout align buttom -->
+            <div class="sidebar mt-4">
+                <ul 
+                class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                    <li class="nav-item">
+                        <a href="#" id="logout-link" class="nav-link " >
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                    
+               
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+                </ul>
+            </div>
+
         </aside>
         <div class="container message-container">
               <!-- Messages -->
@@ -123,6 +172,28 @@
 
     <!-- Toastr -->
     <script src="{{ asset('admin_asset/plugins/toastr/toastr.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#logout-link').on('click', logout);
+        });
+        function logout(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You want to logout from this account!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, logout!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('logout-form').submit();
+                }
+            })
+        }
+    </script>
+
     @stack('js')
 </body>
 
