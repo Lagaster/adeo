@@ -25,4 +25,5 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('programs', App\Http\Controllers\ProgramController::class);
     Route::resource('users', App\Http\Controllers\UserController::class) ;
+    Route::resource('admin-blogs', App\Http\Controllers\BlogController::class);
 });
