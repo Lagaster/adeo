@@ -15,7 +15,7 @@ import { createApp } from 'vue';
 
 const app = createApp({});
 
-import WelcomeApp from './components/MessageNotification.vue';
-app.component('welcome-app', WelcomeApp);
+import GalleryUpload from './components/GalleryImageUpload.vue';
+app.component('gallery-upload', GalleryUpload);
 
 app.mount('#app');
