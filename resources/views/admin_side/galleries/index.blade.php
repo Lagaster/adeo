@@ -47,9 +47,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-12" id="gallery_image_upload">
-
-                        </div>
+                        <gallery-upload :url="{{ json_encode(route('admin-galleries.store')) }}" ></gallery-upload>
                     </div>
                     <div class="row">
                         

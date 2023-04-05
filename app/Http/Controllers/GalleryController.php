@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGalleryRequest;
 use App\Http\Requests\UpdateGalleryRequest;
 use App\Models\Gallery;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -30,7 +32,11 @@ class GalleryController extends Controller
      */
     public function store(StoreGalleryRequest $request)
     {
-        //
+        $data = $request->validated();
+        $gallery = new Gallery();
+        $gallery->file = Storage::disk('public')->put('images/galleries', $request->file('file'));
+        $gallery->save();
+        return response()->json(['success' => 'Image Uploaded Successfully']);
     }
 
     /**
@@ -62,6 +68,7 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
-        //
+        $gallery->delete();
+        return response()->json(['success' => 'Image Deleted Successfully']);
     }
 }

@@ -18,6 +18,6 @@ class Gallery extends Model
         return $this->belongsTo(User::class);
     }
     public function gallery_image(){
-        return  asset('storage/images/galleries/'.$this->file) ;
+        return  asset('storage/'.$this->file) ;
     }
 }
