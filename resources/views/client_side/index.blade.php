@@ -13,7 +13,7 @@
                                 <P data-animation="fadeInUp" data-delay=".4s">When a child gets access to good food,
                                     it can change just about everything.</P>
                                 <a href="programs.html" class="btn_1 hero-btn" data-animation="fadeInUp"
-                                    data-delay=".8s">Ongoing Programs</a>
+                                    data-delay=".8s">Ongoing Projects</a>
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                 <div class="offset-xxl-1 col-xxl-6 col-xl-7 col-lg-6 col-md-10">
 
                     <div class="about-img about-img1  ">
-                        <img src="assets/img/gallery/about2.png" alt="">
+                        <img src="assets/img/gallery/about2.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -209,60 +209,6 @@
         </div>
     </section>
 
-
-    <div class="our-services-area section-img-bg section-padding" data-background="assets/img/gallery/section-bg1.jpg">
-        <div class="container">
-            <div class="row justify-content-center mb-25">
-                <div class="col-xl-12">
-
-                    <div class="section-tittle section-tittle2 text-center">
-                        <span>Helping today</span>
-                        <h2>How we help people</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-between">
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                    <div class="single-services1 text-center">
-                        <div class="services-ion">
-                            <img src="assets/img/icon/services1.svg" alt="">
-                        </div>
-                        <div class="services-cap">
-                            <h5><a href="#">Pure Food & Water</a></h5>
-                            <p>Odio aliquet, fringilla odio eget, tincidunt
-                                nunc duis aliquet pulvinar ante employees and organizations to support.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                    <div class="single-services1 text-center">
-                        <div class="services-ion">
-                            <img src="assets/img/icon/services2.svg" alt="">
-                        </div>
-                        <div class="services-cap">
-                            <h5><a href="#">Health & Medicine</a></h5>
-                            <p>Odio aliquet, fringilla odio eget, tincidunt
-                                nunc duis aliquet pulvinar ante employees and organizations to support.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                    <div class="single-services1 text-center">
-                        <div class="services-ion">
-                            <img src="assets/img/icon/services3.svg" alt="">
-                        </div>
-                        <div class="services-cap">
-                            <h5><a href="#">Education</a></h5>
-                            <p>Odio aliquet, fringilla odio eget, tincidunt
-                                nunc duis aliquet pulvinar ante employees and organizations to support.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <div class="home-blog section-padding">
         <div class="container">
             <div class="row">
@@ -289,7 +235,7 @@
 
                         <div class="single-blogs">
                             <div class="blog-img">
-                                <img src="assets/img/gallery/blog2.jpg" alt="">
+                                <img src="assets/img/gallery/blog1.jpg" alt="">
                             </div>
                             <div class="blog-caption">
                                 <h3><a href="#">Help the ecosystems</a></h3>
