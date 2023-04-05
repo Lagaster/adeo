@@ -30,6 +30,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('admin-galleries', App\Http\Controllers\GalleryController::class);
 });
 
-Route::get('/',[PageController::class,'index'])->name('home');
+Route::get('/',[PageController::class,'index'])->name('page.index');
 Route::get ('/about', [PageController::class,'about'])->name('about');
 Route::get('/projects', [PageController::class,'projects'])->name('projects');
