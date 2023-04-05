@@ -33,6 +33,16 @@
             </a>
         </li>
         <li class="nav-item">
+            <a href="{{ route('admin-galleries.index') }}" class="
+            {{ Request::is('admin/admin-galleries*') ? 'active' : ''  }}
+            nav-link">
+            <i class="fa fa-solid fa-image"></i>
+                <p>
+                    Gallery
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="{{ route('users.index') }}" class="
             {{ Request::is('admin/users*') ? 'active' : '' }}
             nav-link">

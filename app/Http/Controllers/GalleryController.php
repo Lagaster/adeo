@@ -13,7 +13,8 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        //
+        $galleries = Gallery::latest()->lazy(100);
+        return view('admin_side.galleries.index',compact('galleries'));
     }
 
     /**
