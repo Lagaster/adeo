@@ -35,34 +35,29 @@
             right: 0;
             z-index: 9999;
         }
+
         #logout-link{
-            /* background: #383635; */
-            border-radius: 1rem;
-            border: 0;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: 400;
-            text-align: left;
-            width: 100%;
-            display: block;
-            margin-bottom: 0;
-            transition: all 0.3s ease-in-out;
-            
+            cursor: pointer;
+            background-color: #ffedb0;
+            font-size: 14px;
+            color: #000;
+
+        }
+        #logout-link span{
+            margin-right: 10px;
         }
         #logout-link:hover{
-            background: #252423;
-            border-radius: 1rem;
-            border: 0;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: 400;
-            text-align: left;
-            width: 100%;
-            display: block;
-            margin-bottom: 0;
-            transition: all 0.3s ease-in-out;
-            color: #fff;
+            background-color: #f3dc91;
+            color: #000;
         }
+        .profile-show{
+            cursor: pointer;
+        }
+        .profile-show:hover{
+            background-color: #91f391;
+            color: #000;
+        }
+       
         
     </style>
 
@@ -113,24 +108,7 @@
                 <!-- /.sidebar -->
             </div>
             <!-- /.sidebar -->
-            <!-- logout align buttom -->
-            <div class="sidebar mt-4">
-                <ul 
-                class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
-                    <li class="nav-item">
-                        <a href="#" id="logout-link" class="nav-link " >
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span>Logout</span>
-                        </a>
-                    </li>
-                    
-               
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-                </ul>
-            </div>
+            
 
         </aside>
         <div class="container message-container">
@@ -152,10 +130,15 @@
             </strong>
         </footer>
 
-        <!-- Control Sidebar -->
+        {{--  <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
-        </aside>
+        </aside>  --}}
+     
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
@@ -188,7 +171,8 @@
                 confirmButtonText: 'Yes, logout!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    document.getElementById('logout-form').submit();
+                    var form = document.getElementById('logout-form');
+                    form.submit();
                 }
             })
         }
