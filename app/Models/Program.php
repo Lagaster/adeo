@@ -24,7 +24,7 @@ class Program extends Model
     }
     public function programAvatar()
     {
-        return asset( 'storage/images/programs/' . $this->image ) ;
+        return  $this->image !== "default_program.png" ? asset( 'storage/images/programs/' . $this->image ) : asset('admin_asset/images/default_program.png') ;
     }
 
 }

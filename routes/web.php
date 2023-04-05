@@ -19,7 +19,9 @@ use App\Http\Controllers\PageController;
 //     return view('welcome');
 // });
 
-Auth::routes();
+Auth::routes([
+    'register'=> false,
+]);
 
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
