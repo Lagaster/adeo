@@ -605,6 +605,7 @@ hr {
         color: #fff !important;
     }
 }
+
 .hero-btn {
     padding: 20px 39px !important;
     background: #65c9bb !important;
@@ -3252,4 +3253,17 @@ del {
 }
 .switch-wrap {
     margin-bottom: 10px;
+}
+.btn_call_us_header{
+    padding: 0.5rem 2rem ;
+    background: transparent;
+    color: black ;
+    border: 1px solid green;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 14px;
+}
+.btn_call_us_header:hover{
+    background-color: green;
+    color: white;
 }
