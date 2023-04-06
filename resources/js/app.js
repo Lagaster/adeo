@@ -15,7 +15,7 @@ import { createApp } from 'vue';
 
 const app = createApp({});
 
-import GalleryUpload from './components/GalleryImageUpload.vue';
-app.component('gallery-upload', GalleryUpload);
+import GallerySection from './components/galleries/Index.vue';
+app.component('gallery-section', GallerySection);
 
 app.mount('#app');
