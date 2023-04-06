@@ -47,24 +47,10 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <gallery-upload :url="{{ json_encode(route('admin-galleries.store')) }}" ></gallery-upload>
+                        <gallery-section   ></gallery-section>
+                       
                     </div>
-                    <div class="row">
-                        
-                        @foreach ($galleries as $gallery)
-                        <div class="col-md-4" id="galleries-container">
-                            <div class="gallery-image">
-                                <img src="{{ $gallery->gallery_image()  }}" alt="" class="">
-                            </div>
-                            <div class="gallery-title">
-                                <h3>{{ $gallery->title }}</h3>
-                            </div>
-                        </div>
-                            
-                        @endforeach
-                        
-                        
-                    </div>
+                   
                    
                 </div>
                 

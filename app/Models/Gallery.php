@@ -9,13 +9,14 @@ class Gallery extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title',
         'file',
         'user_id',
     ];
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withDefault([
+            'name' => 'Unknown',
+        ]   )->select('id','name');
     }
     public function gallery_image(){
         return  asset('storage/'.$this->file) ;

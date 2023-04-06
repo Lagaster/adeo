@@ -29,7 +29,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('programs', App\Http\Controllers\ProgramController::class);
     Route::resource('users', App\Http\Controllers\UserController::class) ;
     Route::resource('admin-blogs', App\Http\Controllers\BlogController::class);
-    Route::resource('admin-galleries', App\Http\Controllers\GalleryController::class);
+    Route::get('admin-galleries', [ App\Http\Controllers\GalleryController::class, 'index'])->name('admin-galleries.index');
 });
 
 Route::get('/',[PageController::class,'index'])->name('page.index');
