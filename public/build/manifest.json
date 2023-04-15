@@ -1,15 +1,36 @@
 {
+  "_dropzone-91998438.js": {
+    "css": [
+      "assets/dropzone-1f8a37e8.css"
+    ],
+    "file": "assets/dropzone-91998438.js"
+  },
+  "dropzone.css": {
+    "file": "assets/dropzone-1f8a37e8.css",
+    "src": "dropzone.css"
+  },
   "resources/js/app.css": {
-    "file": "assets/app-73bb1889.css",
+    "file": "assets/app-269db6d1.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "css": [
-      "assets/app-73bb1889.css"
+      "assets/app-269db6d1.css"
     ],
-    "file": "assets/app-c9cb4762.js",
+    "file": "assets/app-cfbe8b83.js",
+    "imports": [
+      "_dropzone-91998438.js"
+    ],
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "resources/js/profile_user.js": {
+    "file": "assets/profile_user-d09fd250.js",
+    "imports": [
+      "_dropzone-91998438.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/profile_user.js"
   },
   "resources/sass/app.scss": {
     "file": "assets/app-4ed993c7.js",
