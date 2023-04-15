@@ -14,17 +14,17 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="{{ route('home') }}">Home</a></li>
-                                        <li><a href="#">Who we are?</a></li>
+                                        <li><a href="{{route('whoweare')}}">Who we are?</a></li>
                                         <li><a href="{{ route('projects') }}">Projects</a></li>
-                                        <li><a href="#">About</a></li>
-                                        <li><a href="#">Blog</a>
+                                        <li><a href="">About</a></li>
+                                        <li><a href="{{route('blogs')}}">Blogs</a>
                                             <ul class="submenu">
                                                 <li><a href="#">Blog</a></li>
                                                 <li><a href="b#">Blog Details</a></li>
                                                 <li><a href="#">Elements</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="{{route('contact')}}">Contact Us</a></li>
                                         <li>
                                             @if (Route::has('login'))
                                                 @auth
@@ -55,8 +55,8 @@
                             </div>
                         </div>
                         <div class="header-right-btn f-right  ml-15">
-                            <a href="#" class="header-btn2 d-none d-xxl-inline-block">Call Us : <span>
-                                    070000000</span></a>
+                            <a href="tel:+254722725994" class="header-btn2 d-none d-xxl-inline-block">Call Us : <span>
+                                    0722 725 994</span></a>
                             {{-- <a href="#" class="btn_1 header-btn"><i class="fas fa-heart"></i>Make a
                                 Donation</a> --}}
                         </div>

@@ -91,6 +91,7 @@
 
 <body>
    @include('includes.header')
+   @include('messages')
     <main>
         @yield('content')
 
