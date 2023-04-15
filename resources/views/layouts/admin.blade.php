@@ -82,7 +82,7 @@
             background-color: #00ff00;
             border-color: #00ff00;
         }
-        .user-panel .image{
+      /* .user-panel .image{
             width: 60px;
             height: 60px;
             overflow: hidden;
@@ -92,7 +92,7 @@
         .user-panel .image img{
             max-width: 100%;
             max-height: 100%;
-        }
+        }*/
 
        
         
@@ -122,7 +122,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4 ">
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="brand-link">
-                <img src="#" alt="ADEO Logo"
+                <img src="{{ asset('assets/img/logo/logo.jpg') }}" alt="ADEO Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light"> ADEO</span>
             </a>
