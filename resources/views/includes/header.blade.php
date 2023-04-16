@@ -14,7 +14,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="{{ route('home') }}">Home</a></li>
-                                        <li><a href="{{route('#')}}">Who we are?</a></li>
+                                        <li><a href="#">Who we are?</a></li>
                                         <li><a href="{{ route('programs') }}">Programs</a></li>
                                         {{-- <li><a href="">About</a></li>
                                         <li><a href=" ">Blogs</a>
