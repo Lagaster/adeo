@@ -7,7 +7,8 @@
 
                         <div class="left-side d-flex align-items-center">
                             <div class="logo">
-                                <a href="{{ route('page.index') }}"><img src="{{asset('assets/img/logo/logo.jpg')}}" alt="ADEO"></a>
+                                <a href="{{ route('page.index') }}"><img src="{{ asset('assets/img/logo/logo.jpg') }}"
+                                        alt="ADEO"></a>
                             </div>
 
                             <div class="main-menu d-none d-lg-block">
@@ -23,33 +24,19 @@
                                                 <li><a href="#">Contact Us</a></li>
                                             </ul>
                                         </li> --}}
-                                        <li><a href="{{route('contact')}}">Contact Us</a></li>
+                                        <li><a href="{{ route('contact') }}">Contact Us</a></li>
                                         <li>
                                             @auth
-                                            <a href="{{ route('home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
+                                                <a href="{{ route('home') }}"
+                                                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                                             @endauth
 
-                                                    <a href="{{ route('home') }}"
-                                                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-                                                @else
-                                            <li>
-                                                <a href="{{ route('login') }}"
-                                                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                                                    in</a>
-                                            </li>
-                                            @if (Route::has('register'))
-                                                <li>
-                                                    <a href="{{ route('register') }}"
-                                                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                                                </li>
-
                                             @guest
-                                            @if (Route::has('login'))
-                                            
-                                            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Login</a>
-                                           
 
-                                            @endif
+                                                @if (Route::has('login'))
+                                                    <a href="{{ route('login') }}"
+                                                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Login</a>
+                                                @endif
                                             @endguest
                                         </li>
 
@@ -66,7 +53,7 @@
                             {{-- <a href="#" class="btn_1 header-btn"><i class="fas fa-heart"></i>Make a
                                 Donation</a> --}}
 
-                            <a  href="#" class="btn_call_us_header inline-block ">Call Us : <span>
+                            <a href="#" class="btn_call_us_header inline-block ">Call Us : <span>
                                     070000000</span></a>
                             {{--  <a href="#" class="btn_1 header-btn"><i class="fas fa-heart"></i>Make a
                                 Donation</a>  --}}
