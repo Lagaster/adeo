@@ -21,8 +21,9 @@ class ProgramFactory extends Factory
         return [
             'title' => $title,
             'slug' => Str::slug($title),
-            'description' => $this->faker->realText(100),
+            'description' => $this->faker->realText(rand(100, 200)),
             'created_by' => 1,
+            'image' => 'default_program.png',
 
         ];
     }
