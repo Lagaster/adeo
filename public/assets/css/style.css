@@ -971,7 +971,7 @@ hr {
     }
 }
 .slider-height2 {
-    height: 400px;
+    height: 250px;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -1586,7 +1586,7 @@ hr {
     margin-bottom: 50px;
 }
 .blog_details {
-    padding: 30px 0 20px 10px;
+    padding: 5px 0 3px 5px;
     box-shadow: 0px 10px 20px 0px rgba(221, 221, 221, 0.3);
 }
 @media (min-width: 768px) {
@@ -2236,6 +2236,9 @@ hr {
     font-weight: 600;
     margin-bottom: 20px;
 }
+.contact-container{
+    background-color: #fff;
+}
 .form-contact label {
     font-size: 14px;
 }
@@ -2243,12 +2246,24 @@ hr {
     margin-bottom: 30px;
 }
 .form-contact .form-control {
-    border: 1px solid #e5e6e9;
+    border: 1px solid #505050;
     border-radius: 0px;
     height: 48px;
     padding-left: 18px;
     font-size: 13px;
     background: transparent;
+}
+.form-contact .is-invalid{
+    border: 1px solid #f15b43;
+    background-color: #fff;
+}
+.form-contact .is-invalid:focus{
+    border: 1px solid #f15b43;
+    background-color: #fff;
+}
+.form-contact .invalid-feedback{
+    color: #f15b43;
+
 }
 .form-contact .form-control:focus {
     outline: 0;
@@ -2265,6 +2280,26 @@ hr {
 .contact-section {
     padding: 130px 0 100px;
 }
+
+.contact-container {
+    background-color: #fff;
+    padding:  0 ;
+}
+.contact-container .alert{
+    margin-bottom: 10px;
+
+}
+.contact-container .alert-success{
+    background-color: green;
+    border-color: green;
+    color: #fff;
+    border-radius: 10px;
+    padding: 4px ;
+    font-size: 14px;
+    font-weight: 600;
+
+}
+
 @media (max-width: 991px) {
     .contact-section {
         padding: 70px 0 40px;

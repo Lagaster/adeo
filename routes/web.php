@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,14 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::post('user-profile-image/{user}', [ App\Http\Controllers\UserController::class, 'userProfileImage'])->name('user-profile-image');
 });
 
+Route::get('/',[PageController::class,'index'])->name('index');
+
+
 Route::get('/',[PageController::class,'index'])->name('page.index');
 Route::get ('/about', [PageController::class,'about'])->name('about');
 Route::get('/projects', [PageController::class,'projects'])->name('projects');
+Route::get('/contact', [PageController::class,'contact'])->name('contact');
+Route::get('/programs', [PageController::class,'programs'])->name('programs');
+Route::get('/program/{id}', [PageController::class,'program'])->name('program');
+Route::get('/whoweare', [PageController::class,'whoweare'])->name('whoweare');
+Route::resource('/contacts', ContactController::class);
