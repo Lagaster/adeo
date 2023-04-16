@@ -16,14 +16,14 @@
                                         <li><a href="{{ route('home') }}">Home</a></li>
                                         <li><a href="{{route('whoweare')}}">Who we are?</a></li>
                                         <li><a href="{{ route('programs') }}">Programs</a></li>
-                                        <li><a href="">About</a></li>
+                                        {{-- <li><a href="">About</a></li>
                                         <li><a href=" ">Blogs</a>
                                             <ul class="submenu">
                                                 <li><a href="#">Blog</a></li>
                                                 <li><a href="b#">Blog Details</a></li>
                                                 <li><a href="#">Elements</a></li>
                                             </ul>
-                                        </li>
+                                        </li> --}}
                                         <li><a href="{{route('contact')}}">Contact Us</a></li>
                                         <li>
                                             @if (Route::has('login'))

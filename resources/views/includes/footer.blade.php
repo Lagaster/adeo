@@ -40,9 +40,9 @@
                                 <h4>Navigation</h4>
                                 <ul>
                                     <li><a href="{{ route('home') }}">Home</a></li>
-                                    <li><a href="#">About</a></li>
+                                    {{-- <li><a href="#">About</a></li> --}}
                                     <li><a href="{{route('programs')}}">Programs</a></li>
-                                    <li><a href="#">Blog</a></li>
+                                    {{-- <li><a href="#">Blog</a></li> --}}
                                     <li><a href="{{route('contact')}}">Contact</a></li>
                                 </ul>
                             </div>
@@ -66,7 +66,7 @@
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
                                 <h4>Support</h4>
-                                <p>When a child gets access to good food, it can change.</p>
+                                <p>Provide content.</p>
                                 <a href="#" class="btn_1">Join Us Today</a>
                             </div>
                         </div>
