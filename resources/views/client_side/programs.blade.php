@@ -14,35 +14,39 @@
         </div>
     </div>
 
+
     <section class="blog_area section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="blog_left_sidebar">
+                @foreach ($programs as $program)
+                    <div class="col-md-4">
+                        <div class="blog_left_sidebar">
 
 
-                        @foreach ($programs as $program)
-                         <a href="{{route('program',$program->id)}}" target="_blank" rel="noopener noreferrer">
-                          <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{ $program->programAvatar() }}" height="300px"
-                                    width="100%" alt="" />
-                                <a href="#" class="blog_item_date">
-                                    {{ $program->created_at }}
-                                </a>
-                            </div>
-                            <div class="blog_details">
-                                <a class="d-inline-block">
-                                    <h2 class="blog-head" style="color: #2d2d2d">
-                                        {{ $program->title }}
-                                    </h2>
-                                </a>
-                            </div>
-                        </article></a>
-                        @endforeach
+
+                            <a href="{{ route('program', $program->id) }}" target="_blank" rel="noopener noreferrer">
+                                <article class="blog_item">
+                                    <div class="blog_item_img">
+                                        <img class="card-img rounded-0" src="{{ $program->programAvatar() }}" height="300px"
+                                            width="100%" alt="" />
+                                        <a href="#" class="blog_item_date">
+                                            {{ $program->created_at }}
+                                        </a>
+                                    </div>
+                                    <div class="blog_details">
+                                        <a class="d-inline-block">
+                                            <h2 class="blog-head" style="color: #2d2d2d">
+                                                {{ $program->title }}
+                                            </h2>
+                                        </a>
+                                    </div>
+                                </article>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
+
         </div>
     </section>
 @endsection
