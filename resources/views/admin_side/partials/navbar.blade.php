@@ -38,35 +38,48 @@
             </div>
         </li>
 
-      
-        <!-- Notifications Dropdown Menu -->
+        <!-- login user Dropdown Menu -->
         <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="far fa-bell"></i>
-                <span class="badge badge-warning navbar-badge">0</span>
+          <a class="nav-link" data-toggle="dropdown" href="#">
+          <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+            <span class="name pl-2 text-capitalize ">{{ Auth::user()->name }}</span>
+           
+            
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a href="{{ route('users.show',Auth::user()->id) }}" class="dropdown-item profile-show">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="{{ Auth::user()->avatarView() }}" alt="{{ Auth::user()->name }}" class="img-size-50 mr-3 img-circle">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    {{ Auth::user()->name }}
+                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">Member since</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> {{ Auth::user()->created_at->format('d/M/Y') }}</p>
+                </div>
+              </div>
+              <!-- Message End -->
             </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                <span class="dropdown-item dropdown-header">0 Notifications</span>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-envelope mr-2"></i> no new messages
-                    <span class="float-right text-muted text-sm">0 mins</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                
-                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-            </div>
+           
+            <div class="dropdown-divider"></div>
+           
+            <div class="dropdown-divider"></div>
+            <a href="#" id="logout-link"  class="dropdown-item dropdown-footer">
+              <span><i class="fas fa-sign-out-alt"></i></span>
+              <span>Logout</span>
+            </a>
+          </div>
         </li>
+
+      
+       
         <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"
-                role="button">
-                <i class="fas fa-th-large"></i>
-            </a>
-        </li>
+      
     </ul>
 </nav>

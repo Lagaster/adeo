@@ -20,15 +20,24 @@ use App\Http\Controllers\ContactController;
 //     return view('welcome');
 // });
 
-Auth::routes();
+Auth::routes([
+    'register'=> false,
+]);
 
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('programs', App\Http\Controllers\ProgramController::class);
     Route::resource('users', App\Http\Controllers\UserController::class) ;
+    Route::resource('admin-blogs', App\Http\Controllers\BlogController::class);
+    Route::get('admin-galleries', [ App\Http\Controllers\GalleryController::class, 'index'])->name('admin-galleries.index');
+    Route::post('user-profile-image/{user}', [ App\Http\Controllers\UserController::class, 'userProfileImage'])->name('user-profile-image');
 });
+
 Route::get('/',[PageController::class,'index'])->name('index');
+
+
+Route::get('/',[PageController::class,'index'])->name('page.index');
 Route::get ('/about', [PageController::class,'about'])->name('about');
 Route::get('/projects', [PageController::class,'projects'])->name('projects');
 Route::get('/contact', [PageController::class,'contact'])->name('contact');

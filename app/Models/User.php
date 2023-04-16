@@ -51,6 +51,9 @@ class User extends Authenticatable
 
     public function avatarView()
     {
-        return $this->image !== 'default_user.png' ? asset('storage/images/users/'.$this->image) : asset('admin_asset/dist/img/default_user.png');
+        return $this->image !== 'default_user.png' ? asset('storage/images/users/'.$this->image) : asset('admin_asset/images/default_user.png');
+    }
+    public function blogs(){
+        return $this->hasMany(Blog::class, 'user_id', 'id');
     }
 }

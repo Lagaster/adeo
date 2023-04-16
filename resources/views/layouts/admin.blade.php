@@ -35,34 +35,66 @@
             right: 0;
             z-index: 9999;
         }
+
         #logout-link{
-            /* background: #383635; */
-            border-radius: 1rem;
-            border: 0;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: 400;
-            text-align: left;
-            width: 100%;
-            display: block;
-            margin-bottom: 0;
-            transition: all 0.3s ease-in-out;
-            
+            cursor: pointer;
+            background-color: #ffedb0;
+            font-size: 14px;
+            color: #000;
+
+        }
+        #logout-link span{
+            margin-right: 10px;
         }
         #logout-link:hover{
-            background: #252423;
-            border-radius: 1rem;
-            border: 0;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: 400;
-            text-align: left;
-            width: 100%;
-            display: block;
-            margin-bottom: 0;
-            transition: all 0.3s ease-in-out;
-            color: #fff;
+            background-color: #f3dc91;
+            color: #000;
         }
+        .profile-show{
+            cursor: pointer;
+        }
+        .profile-show:hover{
+            background-color: #91f391;
+            color: #000;
+        }
+        /**.
+        *remove increment and decrement button from number input
+        */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .btn-danger{
+            background-color: #ff0000;
+            border-color: #ff0000;
+        }
+        .btn-danger:hover{
+            background-color: #ff0000;
+            border-color: #ff0000;
+        }
+
+        .btn-success{
+            background-color: #00ff00;
+            border-color: #00ff00;
+        }
+        .btn-success:hover{
+            background-color: #00ff00;
+            border-color: #00ff00;
+        }
+      /* .user-panel .image{
+            width: 60px;
+            height: 60px;
+            overflow: hidden;
+            object-fit: cover;
+            object-position: center;
+        }
+        .user-panel .image img{
+            max-width: 100%;
+            max-height: 100%;
+        }*/
+
+       
         
     </style>
 
@@ -90,7 +122,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4 ">
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="brand-link">
-                <img src="#" alt="ADEO Logo"
+                <img src="{{ asset('assets/img/logo/logo.jpg') }}" alt="ADEO Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light"> ADEO</span>
             </a>
@@ -99,7 +131,7 @@
             <div class="sidebar">
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
+                    <div class="image ">
                         <img src="{{ auth()->user()->avatarView() }}" class="img-circle elevation-2"
                             alt="{{ auth()->user()->name }}">
                     </div>
@@ -113,24 +145,7 @@
                 <!-- /.sidebar -->
             </div>
             <!-- /.sidebar -->
-            <!-- logout align buttom -->
-            <div class="sidebar mt-4">
-                <ul 
-                class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
-                    <li class="nav-item">
-                        <a href="#" id="logout-link" class="nav-link " >
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span>Logout</span>
-                        </a>
-                    </li>
-                    
-               
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-                </ul>
-            </div>
+            
 
         </aside>
         <div class="container message-container">
@@ -152,10 +167,15 @@
             </strong>
         </footer>
 
-        <!-- Control Sidebar -->
+        {{--  <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
-        </aside>
+        </aside>  --}}
+     
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
@@ -188,7 +208,8 @@
                 confirmButtonText: 'Yes, logout!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    document.getElementById('logout-form').submit();
+                    var form = document.getElementById('logout-form');
+                    form.submit();
                 }
             })
         }
