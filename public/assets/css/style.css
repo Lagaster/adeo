@@ -1585,7 +1585,7 @@ hr {
     margin-bottom: 50px;
 }
 .blog_details {
-    padding: 30px 0 20px 10px;
+    padding: 5px 0 3px 5px;
     box-shadow: 0px 10px 20px 0px rgba(221, 221, 221, 0.3);
 }
 @media (min-width: 768px) {

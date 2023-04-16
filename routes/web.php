@@ -32,6 +32,7 @@ Route::get('/',[PageController::class,'index'])->name('home');
 Route::get ('/about', [PageController::class,'about'])->name('about');
 Route::get('/projects', [PageController::class,'projects'])->name('projects');
 Route::get('/contact', [PageController::class,'contact'])->name('contact');
-Route::get('/blogs', [PageController::class,'blogs'])->name('blogs');
+Route::get('/programs', [PageController::class,'programs'])->name('programs');
+Route::get('/program/{id}', [PageController::class,'program'])->name('program');
 Route::get('/whoweare', [PageController::class,'whoweare'])->name('whoweare');
 Route::resource('/contacts', ContactController::class);
