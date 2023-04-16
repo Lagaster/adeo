@@ -30,6 +30,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('users', App\Http\Controllers\UserController::class) ;
     Route::resource('admin-blogs', App\Http\Controllers\BlogController::class);
     Route::get('admin-galleries', [ App\Http\Controllers\GalleryController::class, 'index'])->name('admin-galleries.index');
+    Route::post('user-profile-image/{user}', [ App\Http\Controllers\UserController::class, 'userProfileImage'])->name('user-profile-image');
 });
 
 Route::get('/',[PageController::class,'index'])->name('page.index');

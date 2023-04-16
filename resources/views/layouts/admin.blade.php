@@ -57,6 +57,43 @@
             background-color: #91f391;
             color: #000;
         }
+        /**.
+        *remove increment and decrement button from number input
+        */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .btn-danger{
+            background-color: #ff0000;
+            border-color: #ff0000;
+        }
+        .btn-danger:hover{
+            background-color: #ff0000;
+            border-color: #ff0000;
+        }
+
+        .btn-success{
+            background-color: #00ff00;
+            border-color: #00ff00;
+        }
+        .btn-success:hover{
+            background-color: #00ff00;
+            border-color: #00ff00;
+        }
+      /* .user-panel .image{
+            width: 60px;
+            height: 60px;
+            overflow: hidden;
+            object-fit: cover;
+            object-position: center;
+        }
+        .user-panel .image img{
+            max-width: 100%;
+            max-height: 100%;
+        }*/
+
        
         
     </style>
@@ -85,7 +122,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4 ">
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="brand-link">
-                <img src="#" alt="ADEO Logo"
+                <img src="{{ asset('assets/img/logo/logo.jpg') }}" alt="ADEO Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light"> ADEO</span>
             </a>
@@ -94,7 +131,7 @@
             <div class="sidebar">
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
+                    <div class="image ">
                         <img src="{{ auth()->user()->avatarView() }}" class="img-circle elevation-2"
                             alt="{{ auth()->user()->name }}">
                     </div>
