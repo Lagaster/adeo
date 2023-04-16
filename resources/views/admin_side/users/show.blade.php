@@ -4,6 +4,84 @@
 @endsection
 
 @push('css')
+    <style>
+        .profile-actions-container {
+            width: 100%;
+            height: auto;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .profile-actions-container a {
+            width: 45%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #000;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .profile-user-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img-container .update-profile-image {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+
+            bottom: 0;
+            right: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            background-color: #807e7e;
+            color: #ffffff;
+            border: 1px solid #0000;
+
+        }
+
+        .img-container .update-profile-image:hover {
+            background-color: #000000;
+            color: #ffffff;
+            border: 1px solid #0000;
+        }
+
+        .modal-footer-action {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            border-top: 1px solid #e9ecef;
+            border-bottom-right-radius: calc(0.3rem - 1px);
+            border-bottom-left-radius: calc(0.3rem - 1px);
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -38,9 +116,13 @@
                         <!-- Profile Image -->
                         <div class="card card-primary card-outline">
                             <div class="card-body box-profile">
-                                <div class="text-center">
+                                <div class="text-center img-container">
                                     <img class="profile-user-img img-fluid img-circle" src="{{ $user->avatarView() }}"
                                         alt="{{ $user->name }}">
+                                    <div class="update-profile-image" data-toggle="modal"
+                                        data-target="#updateProfileImagemodelId">
+                                        <i class="fas fa-image fa-lg fa-fw"></i>
+                                    </div>
                                 </div>
 
                                 <h3 class="profile-username text-center text-uppercase">{{ $user->name }}</h3>
@@ -58,32 +140,23 @@
                                         <b>Friends</b> <a class="float-right">13,287</a>
                                     </li>  --}}
                                 </ul>
-                                <!-- Modal trigger button -->
+                                <div class="profile-actions-container">
+                                    <a href="#" class="btn btn-success " data-toggle="modal"
+                                        data-target="#editModelId">
+                                        <b>Edit Profile</b>
+                                    </a>
+                                    <a href="#" id="delete-user" data-id="{{ $user->id }}"
+                                        data-action="{{ route('users.destroy', $user->id) }}" class="btn btn-danger">
+                                        <b>Delete Profile</b>
+                                    </a>
+                                </div>
 
 
-                                <!-- Button trigger modal -->
-                                <a href="#" class="btn btn-success btn-block" data-toggle="modal"
-                                    data-target="#editModelId">
-                                    <b>Edit Profile</b>
-                                </a>
 
 
 
-                                <br>
-                                <form action="{{ route('users.destroy', $user->id) }}" enctype="multipart/form-data"
-                                    method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    @if (Auth::user()->type == 'admin')
-                                        <button type="submit" class="btn btn-sm btn-danger">Delete User</button>
-                                    @elseif(Auth::user()->type == 'user')
-                                        <div style="padding-left:30%">
-                                            <button type="submit" class="btn btn-lg btn-danger btn-block" disabled>Delete
-                                                User</button>
 
-                                        </div>
-                                    @endif
-                                </form>
+
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -207,27 +280,8 @@
 
                         @csrf
                         @method('PUT')
-
-                        <div class="input-group">
-
-                            <div class="custom-file">
-
-                                <input type="file" class="custom-file-input  @error('image') is-invalid @enderror"
-                                    id="image">
-                                <label class="custom-file-label" for="image">Upload Profile Image</label>
-                            </div>
-                            @error('image')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-
-                        </div>
-
-
                         <div class="form-group">
-                            <label for="name">Name <i class="fa fa-asterisk text-danger"
-                                    aria-hidden="true"></i></label>
+                            <label for="name">Name <i class="fa fa-asterisk text-danger" aria-hidden="true"></i></label>
                             <input id="name" placeholder="Name" type="text"
                                 class="form-control @error('name') is-invalid @enderror" name="name"
                                 value="{{ $user->name }}" required>
@@ -281,7 +335,7 @@
 
                             <div class="col-12">
                                 <div class="alert alert-info" role="alert">
-                                    <strong>info</strong> Leave password fields blank if you don't want to change password
+                                    <strong>info</strong> Leave password fields blank if you do not want to change password
                                 </div>
                             </div>
 
@@ -328,52 +382,44 @@
         </div>
     </div>
 
+
+    <!-- Modal -->
+    <div class="modal fade" id="updateProfileImagemodelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Profile Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <button id="select-image-btn" class="btn btn-primary btn-block mb-2">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <span class="pl-2">Select Image To Upload</span>
+                    </button>
+                    {{--  use dropzone  --}}
+                    <form action="{{ route('user-profile-image', $user->id) }}" class="dropzone d-none"
+                        id="my-awesome-dropzone-form" method="post"></form>
+
+
+                </div>
+                <div class="modal-footer-action flex justify-between">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="upload-image-btn" class="btn btn-primary d-none">
+                        <i class="fa fa-upload" aria-hidden="true"></i>
+                        <span class="pl-2">Upload Image</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- /.content-wrapper -->
 @endsection
 @push('js')
-    <!-- Page specific script -->
-    <script>
-        function deleteUser(event, element) {
-            event.preventDefault();
-            var url = $(element).attr('data-url');
-            var id = $(element).attr('data-id');
-            new swal({
-                    title: "Are you sure?",
-                    html: "<b style='color:red'>You will not be able to recover this user!</b> <br> <b style='color:blue'>Do you want to continue?</b>",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Yes, delete it!",
-                    cancelButtonText: "No, cancel!",
-
-                })
-                .then((response) => {
-                    // console.log(response);
-                    if (response.isConfirmed) {
-                        $.ajax({
-                            url: url,
-                            type: 'DELETE',
-                            data: {
-                                _token: "{{ csrf_token() }}",
-                                id: id
-                            },
-                            success: function(response) {
-                                if (response.status == true) {
-                                    new swal(response.message, {
-                                        icon: "success",
-                                    }).then(function() {
-                                        location.href = "{{ route('users.index') }}";
-                                    });
-
-                                } else {
-                                    new swal("Something went wrong");
-                                }
-                            }
-                        });
-                    } else {
-                        new swal("User is safe!");
-                    }
-                });
-        }
-    </script>
+    @vite(['resources/js/profile_user.js'])
+    <script src=""></script>
 @endpush
