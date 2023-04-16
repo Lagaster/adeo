@@ -21,12 +21,11 @@
                     <h2 class="contact-title">Get in Touch</h2>
                 </div>
                 <div class="col-lg-8 contact-container">
-                    {{--  @if (session('success'))  --}}
+                    @if (session('success'))
                         <div id="alert-success" class="alert alert-success alert-dismissible">
                             {{ session('success') }}
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus amet nemo consequatur ab 
                         </div>
-                    {{--  @endif  --}}
+                    @endif
                     <form class="form-contact contact_form" action="{{ route('contacts.store') }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
