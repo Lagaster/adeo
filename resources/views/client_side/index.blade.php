@@ -1,4 +1,5 @@
 @extends('layouts.client')
+@section('title', 'ADEOINTL | ADEO')
 @section('content')
     <div class="slider-area position-relative">
         <div class="slider-active">

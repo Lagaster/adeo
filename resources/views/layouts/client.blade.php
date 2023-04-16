@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>ADEOINTL | ADEO</title>
+    <title>
+        @yield('title')
+    </title>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="">
@@ -21,15 +23,15 @@
     <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
+    <!-- Scripts -->
+    @stack('css')
+
 </head>
 
 <body>
    @include('includes.header')
     <main>
         @yield('content')
-
-      
-
     </main>
     @include('includes.footer')
 
@@ -63,7 +65,7 @@
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
     
- 
+ @stack('js')
 </body>
 
 
