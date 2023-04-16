@@ -28,7 +28,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('programs', App\Http\Controllers\ProgramController::class);
     Route::resource('users', App\Http\Controllers\UserController::class) ;
 });
-Route::get('/',[PageController::class,'index'])->name('home');
+Route::get('/',[PageController::class,'index'])->name('index');
 Route::get ('/about', [PageController::class,'about'])->name('about');
 Route::get('/projects', [PageController::class,'projects'])->name('projects');
 Route::get('/contact', [PageController::class,'contact'])->name('contact');
