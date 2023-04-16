@@ -1,5 +1,27 @@
 @extends('layouts.client')
 @section('title', 'ADEOINTL | ADEO| Programs')
+@push('css')
+    <style>
+      .blog_right_sidebar .single_sidebar_widget{
+        position: relative;
+        margin-top: 0px;
+       /* box-shadow:  1px 1px 15px #888888; */
+        padding: 0px !important;
+      }
+      .recent_program{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        padding: 0px;
+        margin: 0px;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 10px;
+        font-size: 14px;
+
+      }
+    </style>
+@endpush
 @section('content')
 <div class="slider-area">
     <div class="slider-height2 slider-bg2 d-flex align-items-center">
@@ -30,12 +52,12 @@
                     src="{{ $program->programAvatar() }}" height="500px" width="100%"
                     alt=""
                   />
-                  <a href="#" class="blog_item_date">
+                  {{--  <a href="#" class="blog_item_date">
                     {{$program->created_at}}
-                  </a>
+                  </a>  --}}
                 </div>
                 <div class="blog_details">
-                  <a class="d-inline-block" href="blog_details.html">
+                  <a class="d-inline-block" href="#">
                     <h2 class="blog-head" style="color: #2d2d2d">
                       {{$program->title}}
                     </h2>
@@ -58,17 +80,17 @@
                 Recent Programs
               </h3>
             @foreach ($programside as $program)
-            <div class="media post_item">
-              <img src="{{ $program->programAvatar() }}" alt="post" />
+            {{--  <div class="media post_item ">  --}}
+              <a href="{{ route('program', $program->id) }}"  class="recent_program">
+              <img src="{{ $program->programAvatar() }}" width="200" height="150" alt=" {{$program->title}}" />
               <div class="media-body">
-                <a href="blog_details.html">
                   <h3 style="color: #2d2d2d">
                     {{$program->title}}
                   </h3>
-                </a>
-                <p>{{$program->created_at}}</p>
+                {{--  <p>{{$program->created_at}}</p>  --}}
               </div>
-            </div>
+            </a>
+            {{--  </div>  --}}
             @endforeach
             </aside>
           </div>
