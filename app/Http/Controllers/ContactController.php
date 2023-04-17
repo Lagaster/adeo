@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
+use Illuminate\Support\Facades\Notification;
 
 class ContactController extends Controller
 {
@@ -31,7 +34,11 @@ class ContactController extends Controller
     {
         $data = $request->validated();
 
-        Contact::create($data);
+        //save data to database
+       $contact = Contact::create($data);
+        // send email to all users
+        $users = User::all();
+        Notification::send($users, new \App\Notifications\ContactNotification($contact));
 
         return back()->with('success','Your message was successfully submitted.');
     }
