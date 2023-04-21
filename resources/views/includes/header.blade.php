@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="header-right-btn f-right  ml-15">
-                            <a href="tel:+254722725994" class="header-btn2 d-none d-xxl-inline-block">Call Us : <span>
+                            <a href="tel:+254722725994" class="header-btn2 d-none d-xxl-inline-block">Call Us : <span style="color:black">
                                     0722 725 994</span></a>
                             {{-- <a href="#" class="btn_1 header-btn"><i class="fas fa-heart"></i>Make a
                                 Donation</a> --}}
