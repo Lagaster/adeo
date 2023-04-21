@@ -605,6 +605,7 @@ hr {
         color: #fff !important;
     }
 }
+
 .hero-btn {
     padding: 20px 39px !important;
     background: #65c9bb !important;
@@ -2235,6 +2236,9 @@ hr {
     font-weight: 600;
     margin-bottom: 20px;
 }
+.contact-container{
+    background-color: #fff;
+}
 .form-contact label {
     font-size: 14px;
 }
@@ -2242,12 +2246,24 @@ hr {
     margin-bottom: 30px;
 }
 .form-contact .form-control {
-    border: 1px solid #e5e6e9;
+    border: 1px solid #505050;
     border-radius: 0px;
     height: 48px;
     padding-left: 18px;
     font-size: 13px;
     background: transparent;
+}
+.form-contact .is-invalid{
+    border: 1px solid #f15b43;
+    background-color: #fff;
+}
+.form-contact .is-invalid:focus{
+    border: 1px solid #f15b43;
+    background-color: #fff;
+}
+.form-contact .invalid-feedback{
+    color: #f15b43;
+
 }
 .form-contact .form-control:focus {
     outline: 0;
@@ -2264,6 +2280,26 @@ hr {
 .contact-section {
     padding: 130px 0 100px;
 }
+
+.contact-container {
+    background-color: #fff;
+    padding:  0 ;
+}
+.contact-container .alert{
+    margin-bottom: 10px;
+
+}
+.contact-container .alert-success{
+    background-color: green;
+    border-color: green;
+    color: #fff;
+    border-radius: 10px;
+    padding: 4px ;
+    font-size: 14px;
+    font-weight: 600;
+
+}
+
 @media (max-width: 991px) {
     .contact-section {
         padding: 70px 0 40px;
@@ -3252,4 +3288,17 @@ del {
 }
 .switch-wrap {
     margin-bottom: 10px;
+}
+.btn_call_us_header{
+    padding: 0.5rem 2rem ;
+    background: transparent;
+    color: black ;
+    border: 1px solid green;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 14px;
+}
+.btn_call_us_header:hover{
+    background-color: green;
+    color: white;
 }

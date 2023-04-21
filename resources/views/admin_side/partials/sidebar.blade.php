@@ -23,6 +23,26 @@
             </a>
         </li>
         <li class="nav-item">
+            <a href="{{ route('admin-blogs.index') }}" class="
+            {{ Request::is('admin/admin-blogs*') ? 'active' : ''  }}
+            nav-link">
+               <i class="fa fa-comment" aria-hidden="true"></i>
+                <p>
+                    Blogs
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('admin-galleries.index') }}" class="
+            {{ Request::is('admin/admin-galleries*') ? 'active' : ''  }}
+            nav-link">
+            <i class="fa fa-solid fa-image"></i>
+                <p>
+                    Gallery
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="{{ route('users.index') }}" class="
             {{ Request::is('admin/users*') ? 'active' : '' }}
             nav-link">

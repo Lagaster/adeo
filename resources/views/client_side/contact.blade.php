@@ -20,7 +20,12 @@
                 <div class="col-12">
                     <h2 class="contact-title">Get in Touch</h2>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-8 contact-container">
+                    @if (session('success'))
+                        <div id="alert-success" class="alert alert-success alert-dismissible">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <form class="form-contact contact_form" action="{{ route('contacts.store') }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
@@ -28,29 +33,48 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control valid" name="name" id="name" type="text"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
+                                    <input class="form-control @error('name') is-invalid @enderror" name="name"
+                                        id="name" type="text" value="{{ old('name') }}"
                                         placeholder="Enter your name" />
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control valid" name="email" id="email" type="email"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'"
-                                        placeholder="Email" />
+                                    <input class="form-control @error('email') is-invalid @enderror" name="email"
+                                        id="email" type="email" value="{{ old('email') }}" placeholder="Email" />
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input class="form-control" name="subject" id="subject" type="text"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'"
+                                    <input class="form-control @error('subject') is-invalid @enderror" name="subject"
+                                        id="subject" type="text" value="{{ old('subject') }}"
                                         placeholder="Enter Subject" />
+                                    @error('subject')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                                    <textarea class="form-control w-100 @error('message') is-invalid @enderror" name="message" id="message" cols="30"
+                                        rows="9" placeholder="Enter Message here...">{{ old('message') }}</textarea>
+                                    @error('message')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -90,3 +114,13 @@
         </div>
     </section>
 @endsection
+
+@push('js')
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('#alert-success').fadeOut('fast');
+            }, 5000);
+        });
+    </script>
+@endpush

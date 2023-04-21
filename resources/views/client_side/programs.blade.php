@@ -1,4 +1,23 @@
 @extends('layouts.client')
+@section('title', 'ADEOINTL | ADEO| Programs')
+@push('css')
+    <style>
+        .blog_left_sidebar{
+            position: relative;
+            margin-top: 0px;
+            box-shadow:  1px 1px 15px #888888;
+           
+        }
+      
+        .blog-head{
+            color: #2d2d2d;
+        }
+        .blog-head:hover{
+            color: green !important;
+        }
+        
+    </style>
+@endpush
 @section('content')
     <div class="slider-area">
         <div class="slider-height2 slider-bg2 d-flex align-items-center">
@@ -28,14 +47,14 @@
                                 <article class="blog_item">
                                     <div class="blog_item_img">
                                         <img class="card-img rounded-0" src="{{ $program->programAvatar() }}" height="300px"
-                                            width="100%" alt="" />
-                                        <a href="#" class="blog_item_date">
+                                            width="100%" alt="{{ $program->title }}" />
+                                        {{--  <a href="#" class="blog_item_date">
                                             {{ $program->created_at }}
-                                        </a>
+                                        </a>  --}}
                                     </div>
                                     <div class="blog_details">
-                                        <a class="d-inline-block">
-                                            <h2 class="blog-head" style="color: #2d2d2d">
+                                        <a  href="{{ route('program', $program->id) }}"  class="d-inline-block">
+                                            <h2 class="blog-head" >
                                                 {{ $program->title }}
                                             </h2>
                                         </a>

@@ -1,5 +1,44 @@
 @extends('layouts.admin')
 @section('title', 'Dashboard')
+@push('css')
+    <style>
+      .program-lists{
+        list-style: none;
+        padding: 0!important;
+        margin: 0 !important;
+        max-height: 400px;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+      }
+      .program-lists .program-list{
+          border-bottom: 1px solid #ccc;
+          padding: 0!important;
+          margin: 0 !important;
+      }
+      
+      .program-lists .program-list a{
+        display: flex;
+        color: #000;
+        padding: 0px;
+        margin: 0px;
+        text-decoration: none;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+
+      }
+      .program-lists .program-list a:hover{
+        background-color: #ccc;
+        cursor: pointer;
+      }
+      .badge-info{
+        font-size: 1rem;
+      }
+    </style>
+@endpush
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -86,31 +125,151 @@
             <!-- ./col -->
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-6">
+            <!-- USERS LIST -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Users</h3>
 
-        <!-- Default box -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Title</h3>
-
-                <div class="card-tools">
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                        <i class="fas fa-times"></i>
-                    </button>
+                    <div class="card-tools">
+                        <span class="badge badge-info">{{ $users_count }}</span>
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                                class="fas fa-times"></i>
+                        </button>
+                    </div>
                 </div>
+                <!-- /.card-header -->
+                <div class="card-body p-0">
+                    <ul class="users-list clearfix">
+                        @foreach ($users as $user)
+                            <li>
+                                <a href="{{ route('users.show', $user->id) }}"> <img
+                                        src="{{ $user->avatarView() }}" style=" width:80px; height:50%"
+                                        alt="{{ $user->name }}"></a>
+
+                                <a class="users-list-name" href="{{ route('users.show', $user->id) }}">
+                                    <h6>{{ $user->name }}</h6>
+                                </a>
+                                {{--  <span class="users-list-date">
+                                    <h6>{{ $user->type }}</h6>
+                                </span>  --}}
+                            </li>
+                        @endforeach
+
+                    </ul>
+                    <div class="">
+                      <a href="{{ route('users.index') }}" class="btn btn-primary btn-block"><b>View All Users</b></a>
+                    </div>
+                    <!-- /.users-list -->
+                </div>
+                <!-- /.card-body -->
+                
+                <!-- /.card-footer -->
             </div>
-            <div class="card-body">
-                Start creating your amazing application!
-            </div>
-            <!-- /.card-body -->
-            <div class="card-footer">
-                Footer
-            </div>
-            <!-- /.card-footer-->
+            <!--/.card -->
         </div>
-        <!-- /.card -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">ADEO Programs</h3>
+
+              <div class="card-tools">
+                  <span class="badge badge-info">{{ $programs_count }}</span>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                          class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                          class="fas fa-times"></i>
+                  </button>
+              </div>
+          </div>
+            <div class="card-body1">
+              <ul class="list-group clearfix program-lists">
+                
+                @foreach ($programs as $program)
+                <li class="list-group-item program-list ">
+                  <a  href="{{ route('programs.show',$program->id) }}">
+                    <div>
+                      <img src="{{  $program->programAvatar() }}" height="70" width="100" alt="{{ $program->title }}">
+                    </div>
+                    <h4 class=" text-capitalize text-black " >{{ $program->title }}</h4>
+                  </a>
+                </li>
+                @endforeach
+              </ul>
+              <div class="">
+                <a href="{{ route('programs.index') }}" class="btn btn-primary btn-block"><b>View All Programs</b></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <!-- Blogs LIST -->
+          <div class="card">
+              <div class="card-header">
+                  <h3 class="card-title">Blogs</h3>
+
+                  <div class="card-tools">
+                      <span class="badge badge-info">{{ $blogs_count }}</span>
+                      <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                              class="fas fa-minus"></i>
+                      </button>
+                      <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                              class="fas fa-times"></i>
+                      </button>
+                  </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <table id="blogs_table" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Subtitle</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                @foreach ($blogs as $blog)
+                <tr>
+                    <td>{{$blog->title}}</td>
+                    <td>{{ Str::limit($blog->subtitle,50) }}</td>
+                    <td> {{$blog->created_at}}</td>
+                <td><a href="{{route('admin-blogs.show',$blog->slug)}}" class="btn btn-sm btn-primary">Read more</a></td>
+                  </tr>
+
+                @endforeach
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>Title</th>
+                    <th>Subtitle</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                  </tr>
+                  </tfoot>
+                </table>
+                  <div class="">
+                    <a href="{{ route('admin-blogs.index') }}" class="btn btn-primary btn-block"><b>View All Blogs</b></a>
+                  </div>
+                  <!-- /.users-list -->
+              </div>
+              <!-- /.card-body -->
+              
+              <!-- /.card-footer -->
+          </div>
+          <!--/.card -->
+      </div>
+
+        </div>
+
+       
 
     </section>
     <!-- /.content -->
