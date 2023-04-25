@@ -57,7 +57,7 @@
                                         </a></li>
                                     <li><a href="#">P.o Box P.O. Box 50144, 00200</a></li>
                                     <li><a href="mailto:info@adeointl.org">info@adeointl.org</a></li>
-                                    <li><a href="tel:+254722725994">0722 725 994</a></li>
+                                    <li><a href="tel:+254701347776">0701 347 776</a></li>
                                 </ul>
                             </div>
                         </div>

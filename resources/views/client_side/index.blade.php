@@ -4,16 +4,15 @@
     <div class="slider-area position-relative">
         <div class="slider-active">
 
-            <div class="single-slider slider-height slider-bg1 d-flex align-items-center">
+            <div class="single-slider slider-height slider-bg1 d-flex align-items-center pt-3 " >
                 <div class="container">
                     <div class="row">
                         <div class="col-xxl-4 col-xl-5 col-lg-6 col-md-8 col-sm-10">
                             <div class="hero-caption">
                                 <h1 data-animation="fadeInUp" data-delay=".2s">Give a helping hand to those who need
                                     it!</h1>
-                                <P data-animation="fadeInUp" data-delay=".4s">When a child gets access to good food,
-                                    it can change just about everything.</P>
-                                <a href="programs.html" class="btn_1 hero-btn" data-animation="fadeInUp"
+                                <P data-animation="fadeInUp" data-delay=".4s">African Development and Emergency Organization (ADEO) is registered in Kenya and its headquarters Nairobi.</P>
+                                <a href="{{route('programs')}}" class="btn_1 hero-btn" data-animation="fadeInUp"
                                     data-delay=".8s">Ongoing Projects</a>
                             </div>
                         </div>
@@ -210,7 +209,7 @@
         </div>
     </section>
 
-    <div class="home-blog section-padding">
+    {{-- <div class="home-blog section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-xxl-3 col-xl-3">
@@ -261,5 +260,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

@@ -7,8 +7,8 @@
 
                         <div class="left-side d-flex align-items-center">
                             <div class="logo">
-                                <a href="{{ route('page.index') }}"><img src="{{ asset('assets/img/logo/logo.jpg') }}"
-                                        alt="ADEO"></a>
+                                <a href="{{ route('page.index') }}"><img height="120px" width="120px"
+                                        src="{{ asset('assets/img/logo/logo.jpg') }}" alt="ADEO"></a>
                             </div>
 
                             <div class="main-menu d-none d-lg-block">
@@ -34,29 +34,27 @@
                                             @guest
 
                                                 @if (Route::has('login'))
-                                                    <a href="{{ route('login') }}"
+                                                    <a href="{{ route('login') }}" target="_blank"
                                                         class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Login</a>
                                                 @endif
                                             @endguest
                                         </li>
-
 
                                     </ul>
 
                                 </nav>
                             </div>
                         </div>
-                        <div class="header-right-btn f-right  ml-15">
-
-                            
-                            {{-- <a href="#" class="btn_1 header-btn"><i class="fas fa-heart">
-                                </i>Make a
+                        <div class="header-right-btn f-right  ml-5">
+                            <a href="tel:+254701347776" class="header-btn2 d-none d-xxl-inline-block">Call Us : <span>
+                                    0701 347 776</span></a>
+                            {{-- <a href="#" class="btn_1 header-btn"><i class="fas fa-heart"></i>Make a
                                 Donation</a> --}}
 
-                            <a href="tel:+254722725994"class="btn_call_us_header inline-block ">Call Us : <span>
-                                0722 725 994</span></a>
-                            
-
+                            <a href="tel:+254701347776" class="btn_call_us_header inline-block ">Call Us : <span>
+                                    0701 347 776</span></a>
+                            {{--  <a href="#" class="btn_1 header-btn"><i class="fas fa-heart"></i>Make a
+                                Donation</a>  --}}
                         </div>
 
                         <div class="col-12">
