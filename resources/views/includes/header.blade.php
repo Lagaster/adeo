@@ -46,7 +46,6 @@
                             </div>
                         </div>
                         <div class="header-right-btn f-right  ml-5">
-
                             <a href="tel:+254701347776" class="header-btn2 d-none d-xxl-inline-block">Call Us : <span>
                                     0701 347 776</span></a>
                             {{-- <a href="#" class="btn_1 header-btn"><i class="fas fa-heart"></i>Make a
@@ -56,7 +55,6 @@
                                     0701 347 776</span></a>
                             {{--  <a href="#" class="btn_1 header-btn"><i class="fas fa-heart"></i>Make a
                                 Donation</a>  --}}
-
                         </div>
 
                         <div class="col-12">

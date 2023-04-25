@@ -37,6 +37,11 @@
       .badge-info{
         font-size: 1rem;
       }
+      .none-box{
+        background: gray;
+        color: white;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
     </style>
 @endpush
 @section('content')
@@ -74,7 +79,7 @@
                 <div class="icon">
                     <i class="fa fa-users" aria-hidden="true"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('users.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -82,14 +87,14 @@
               <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>0</h3>
+                  <h3>{{ $programs_count }}</h3>
   
-                  <p>Packages</p>
+                  <p>Programs</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-envelope" aria-hidden="true"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('programs.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -97,22 +102,22 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>0</h3>
+                  <h3>{{ $blogs_count  }}</h3>
   
-                  <p>Users Logs </p>
+                  <p>Blogs </p>
                 </div>
                 <div class="icon">
-                  <i class="fa fa-database" aria-hidden="true"></i>
+                  <i class="fa fa-comment" aria-hidden="true"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('admin-blogs.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-danger">
+              <div  class="small-box none-box">
                 <div class="inner">
-                  <h3>65</h3>
+                  <h3>0</h3>
   
                   <p>Unique Visitors</p>
                 </div>
