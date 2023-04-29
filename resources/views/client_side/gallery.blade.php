@@ -21,9 +21,12 @@
             <div class="row">
                 <div class="row">
                     @foreach ($images as $image)
-                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 shadow">
                         <img src="{{ $image-> gallery_image() }}"
-                            class="w-100 shadow-1-strong rounded mb-4" alt="Adeointl" />        
+                            class="w-100 shadow-1-strong rounded mb-4 image" alt="Adeointl"
+                            height="300px"
+                            width="100px" 
+                            />        
                     </div>  
                     @endforeach  
                     {{ $images->links('pagination::bootstrap-4') }}
@@ -35,3 +38,16 @@
     <!-- Gallery -->
     
 @endsection
+@push('css')
+    <style>
+        .image {
+            max-height: 300px;
+            object-fit: cover;
+            object-position: center;
+            border: none;
+            border-radius: 10px;
+            
+
+        }
+    </style>
+@endpush
