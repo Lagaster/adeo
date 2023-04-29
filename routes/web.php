@@ -43,6 +43,6 @@ Route::get('/projects', [PageController::class,'projects'])->name('projects');
 Route::get('/contact', [PageController::class,'contact'])->name('contact');
 Route::get('/programs', [PageController::class,'programs'])->name('programs');
 Route::get('/program/{id}', [PageController::class,'program'])->name('program');
-Route::get('/whoweare', [PageController::class,'whoweare'])->name('whoweare');
+Route::get('/who-we-are', [PageController::class,'whoweare'])->name('whoweare');
 Route::get('gallery',[PageController::class,'gallery'])->name('gallery');
 Route::resource('/contacts', ContactController::class);
