@@ -1,4 +1,5 @@
 @extends('layouts.client')
+@section('title', 'ADEOINTL | ADEO| Contact')
 @section('content')
     <div class="slider-area">
         <div class="slider-height2 slider-bg2 d-flex align-items-center">

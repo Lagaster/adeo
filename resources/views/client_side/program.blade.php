@@ -1,5 +1,5 @@
 @extends('layouts.client')
-@section('title', 'ADEOINTL | ADEO| Programs')
+@section('title', 'ADEOINTL | ADEO| Program')
 @push('css')
     <style>
       .blog_right_sidebar .single_sidebar_widget{
