@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use App\Models\Program;
 use Illuminate\Http\Request;
 
@@ -31,5 +32,12 @@ class PageController extends Controller
     public function whoweare(){
         return view('client_side.whoweare');
     }
+    public function gallery(){
+
+        $images =Gallery::orderBy('id','desc')->paginate(9);
+        //dd($images);
+        return view('client_side.gallery',compact('images'));
+    }
 }
+
 

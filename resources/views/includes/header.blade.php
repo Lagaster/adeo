@@ -15,10 +15,10 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a class="active" href="{{ route('page.index') }}">Home</a></li>
-                                        <li><a href="#">Who we are?</a></li>
+                                        <li><a href="{{route('whoweare')}}">Who we are?</a></li>
                                         <li><a href="{{ route('programs') }}">Programs</a></li>
-                                        {{-- <li><a href="">About</a></li>
-                                        <li><a href=" ">Blogs</a>
+                                         <li><a href="{{route('gallery')}}">Gallery</a></li>
+                                       {{-- <li><a href=" ">Blogs</a>
                                             <ul class="submenu">
                                                 <li><a href="#">Gallery</a></li>
                                                 <li><a href="#">Contact Us</a></li>
