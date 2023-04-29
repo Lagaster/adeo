@@ -45,4 +45,4 @@ Route::get('/programs', [PageController::class,'programs'])->name('programs');
 Route::get('/program/{id}', [PageController::class,'program'])->name('program');
 Route::get('/who-we-are', [PageController::class,'whoweare'])->name('whoweare');
 Route::get('gallery',[PageController::class,'gallery'])->name('gallery');
-Route::resource('/contacts', ContactController::class);
+Route::resource('/contacts', ContactController::class)->except(['create','show','destroy']);
