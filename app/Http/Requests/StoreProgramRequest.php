@@ -23,7 +23,7 @@ class StoreProgramRequest extends FormRequest
     {
         return [
             'title' => ['required','string'],
-            'image' => ['required','image', 'mimes:png,jpg,jpeg,svg,gif'],
+            'image' => ['nullable','image', 'mimes:png,jpg,jpeg,svg,gif'],
             'description' => ['required','string']
 
         ];

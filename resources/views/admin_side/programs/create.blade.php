@@ -66,7 +66,7 @@
                 <input id="image"
                 placeholder="Program image"
                  type="file" class="form-control @error('image') is-invalid @enderror" name="image" 
-                 required >
+                  >
                  @error('image')
                  <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>
