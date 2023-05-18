@@ -24,11 +24,12 @@
                                 <ul class="footer-social">
                                     <li><a class="fb"target="_blank"
                                             href="https://www.facebook.com/ADEORGANIZATION/"><i
-                                                class="fab fa-facebook"></i></a></li>
-                                    <li><a class="lnk" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                                class="fab fa-facebook" target="_blank"></i></a></li>
+                                    <li><a class="lnk" href="https://www.linkedin.com/in/adeo-int-b04007273" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                                     </li>
-                                    <li><a class="ins" href="#"><i class="fab fa-instagram"></i></a>
+                                    <li><a class="ins" href="https://instagram.com/adeo_int?igshid=ZDdkNTZiNTM=" target="_blank"><i class="fab fa-instagram"></i></a>
                                     </li>
+                                    <li><a href="https://twitter.com/adeo_int?t=Jof3h5AP4Gqh9nkgPZ9Ydg&s=09" class="fab fa-twitter" target="_blank" rel="noopener noreferrer"></a></li>
                                     <li><a class="yt" href="#"><i class="fab fa-youtube"></i></a></li>
                                 </ul>
                             </div>
@@ -57,17 +58,14 @@
                                         </a></li>
                                     <li><a href="#">P.o Box P.O. Box 50144, 00200</a></li>
                                     <li><a href="mailto:info@adeointl.org">info@adeointl.org</a></li>
-                                    <li><a href="tel:+254701347776">0701 347 776</a></li>
+                                    <li><a href="tel:+254701347776">+254 701 347 776</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Support</h4>
-                                <p>Provide content.</p>
-                                <a href="#" class="btn_1">Join Us Today</a>
+                            <div class="footer-tittle">                         
                             </div>
                         </div>
                     </div>
