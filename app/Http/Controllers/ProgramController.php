@@ -38,9 +38,13 @@ class ProgramController extends Controller
     {
         $data = $request->validated();
         // upload image 
-        $imageName = time() . '.' . $request->image->extension();
-        $request->image->move(storage_path('app/public/images/programs'), $imageName);
-        $data['image'] = $imageName;
+
+        if (file_exists($request->file('image'))) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(storage_path('app/public/images/programs'), $imageName);
+            $data['image'] = $imageName;
+        }
+       
         $data['slug'] = Str::of($data['title'])->slug('-');
         $data['created_by'] = auth()->user()->id;
         Program::create($data);
