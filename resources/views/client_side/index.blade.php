@@ -14,7 +14,7 @@
                                 <P data-animation="fadeInUp" data-delay=".4s">African Development and Emergency Organization
                                     (ADEO) is registered in Kenya and its headquarters Nairobi.</P>
                                 <a href="{{ route('programs') }}" class="btn_1 hero-btn" data-animation="fadeInUp"
-                                    data-delay=".8s">Ongoing Projects</a>
+                                    data-delay=".8s">ADEO PREVIOUS WORKS</a>
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,6 @@
                                 to solve their
                                 own problems.</p>
                         </div>
-                        <a href="#" class="btn_01">Discover More</a>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -92,97 +91,7 @@
     </section>
 
 
-    {{-- <div class="class-offer-area fix">
-        <div class="container-fluid p-0">
-            <div class="class-offer-active row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-
-                    <div class="properties pb-30">
-                        <div class="properties__card">
-                            <div class="properties__img">
-                                <a href="#"><img src="assets/img/gallery/class-img1.jpg" alt=""></a>
-                            </div>
-                            <div class="properties__caption">
-                                <h3><a href="#">Help the ecosystems</a></h3>
-                                <p>Sedac odio aliquet, fringilla odio eget, tincidunt nunc duis aliquet pulvinar
-                                    ante start in life and the opportunity to learn. </p>
-                            </div>
-                            <div class="properties__footer d-flex flex-wrap justify-content-between align-items-center">
-                                <div class="class-day">
-                                    <span>$67,845</span>
-                                    <p>Goal</p>
-                                </div>
-                                <div class="class-day">
-                                    <span>$48,845</span>
-                                    <p>Raised</p>
-                                </div>
-                                <div class="class-day">
-                                    <a href="#" class="btn_01">Donate</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-
-                    <div class="properties pb-30">
-                        <div class="properties__card">
-                            <div class="properties__img">
-                                <a href="#"><img src="assets/img/gallery/class-img2.jpg" alt=""></a>
-                            </div>
-                            <div class="properties__caption">
-                                <h3><a href="#">Donate Vitamin B12 Program</a></h3>
-                                <p>Sedac odio aliquet, fringilla odio eget, tincidunt nunc duis aliquet pulvinar
-                                    ante start in life and the opportunity to learn. </p>
-                            </div>
-                            <div class="properties__footer d-flex flex-wrap justify-content-between align-items-center">
-                                <div class="class-day">
-                                    <span>$67,845</span>
-                                    <p>Goal</p>
-                                </div>
-                                <div class="class-day">
-                                    <span>$48,845</span>
-                                    <p>Raised</p>
-                                </div>
-                                <div class="class-day">
-                                    <a href="#" class="btn_01">Donate</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-
-                    <div class="properties pb-30">
-                        <div class="properties__card">
-                            <div class="properties__img">
-                                <a href="#"><img src="assets/img/gallery/class-img3.jpg" alt=""></a>
-                            </div>
-                            <div class="properties__caption">
-                                <h3><a href="#">View Savers In Deworm Program</a></h3>
-                                <p>Sedac odio aliquet, fringilla odio eget, tincidunt nunc duis aliquet pulvinar
-                                    ante start in life and the opportunity to learn. </p>
-                            </div>
-                            <div class="properties__footer d-flex flex-wrap justify-content-between align-items-center">
-                                <div class="class-day">
-                                    <span>$67,845</span>
-                                    <p>Goal</p>
-                                </div>
-                                <div class="class-day">
-                                    <span>$48,845</span>
-                                    <p>Raised</p>
-                                </div>
-                                <div class="class-day">
-                                    <a href="#" class="btn_01">Donate</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
+    
 
     <section class="about-area1 section-padding">
         <div class="container">
@@ -216,6 +125,56 @@
         </div>
     </section>
 
+    
+    <section class="about-area1 section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-9">
+                    <div class="about-caption about-caption2">
+                        <div class="section-tittle mb-5">
+                            <span>Modules</span>
+                            <h2>ADEO implements six modules, namely:</h2>
+                            <p class="mb-30">
+                                <li>
+                                    ● Treatment, Care, and Support (TCS)
+    
+                                </li>
+                                <li>
+                                    ● Prevention of Mother to Child Transmission (PMTCT)
+    
+                                </li>
+                                <li>
+                                    ● Differentiated HIV Testing Services (DHTS)
+    
+                                </li>
+                                <li>
+                                    ● Reducing Human Rights Related Barriers to HIV/TB services
+    
+                                </li>
+                                <li>
+                                    ● Resilient and Sustainable Systems for Health (RSSH): Health management information systems
+                                    and M&E.
+    
+                                </li>
+                                <li>
+                                    ● Adolescents and Young People (AYP)
+    
+                                </li>
+    
+                                </p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="w3-content w3-section" style="max-width:500px">
+                    <img class="mySlides w3-animate-fading" src="assets/img/slide/a.jpg" style="width:100%">
+                    <img class="mySlides w3-animate-fading" src="assets/img/slide/ade.jpg" style="width:100%">
+                    <img class="mySlides w3-animate-fading" src="assets/img/slide/adeo.jpg" style="width:100%">
+                </div>
+
+            </div>
+        </div>
+    </section>
     {{-- <div class="home-blog section-padding">
         <div class="container">
             <div class="row">

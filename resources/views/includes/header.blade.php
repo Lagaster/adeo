@@ -15,7 +15,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a class="active" href="{{ route('page.index') }}">Home</a></li>
-                                        <li><a href="{{route('whoweare')}}">Who we are?</a></li>
+                                        {{-- <li><a href="{{route('whoweare')}}">Who we are?</a></li> --}}
                                         <li><a href="{{ route('programs') }}">Programs</a></li>
                                          <li><a href="{{route('gallery')}}">Gallery</a></li>
                                        {{-- <li><a href=" ">Blogs</a>
@@ -47,12 +47,12 @@
                         </div>
                         <div class="header-right-btn f-right  ml-5">
                             <a href="tel:+254701347776" class="header-btn2 d-none d-xxl-inline-block">Call Us : <span>
-                                    0701 347 776</span></a>
+                                    +254 701 347 776</span></a>
                             {{-- <a href="#" class="btn_1 header-btn"><i class="fas fa-heart"></i>Make a
                                 Donation</a> --}}
 
                             <a href="tel:+254701347776" class="btn_call_us_header inline-block ">Call Us : <span>
-                                    0701 347 776</span></a>
+                                +254 701 347 776</span></a>
                             {{--  <a href="#" class="btn_1 header-btn"><i class="fas fa-heart"></i>Make a
                                 Donation</a>  --}}
                         </div>

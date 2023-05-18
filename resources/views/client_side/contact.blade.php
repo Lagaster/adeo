@@ -97,7 +97,7 @@
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-tablet"></i></span>
                         <div class="media-body">
-                            <h3><a href="tel:+254722725994">0722 725 994</a></h3>
+                            <h3><a href="tel:+254722725994">+254 722 725 994</a></h3>
 
                         </div>
                     </div>
