@@ -40,10 +40,7 @@
                 @foreach ($programs as $program)
                     <div class="col-md-4">
                         <div class="blog_left_sidebar">
-
-
-
-                            <a href="{{ route('program', $program->id) }}" target="_blank" rel="noopener noreferrer">
+                            <a href="{{ route('program', $program->slug) }}" target="_blank" rel="noopener noreferrer">
                                 <article class="blog_item">
                                     <div class="blog_item_img">
                                         <img class="card-img rounded-0" src="{{ $program->programAvatar() }}" height="300px"
@@ -53,7 +50,7 @@
                                         </a>  --}}
                                     </div>
                                     <div class="blog_details">
-                                        <a  href="{{ route('program', $program->id) }}"  class="d-inline-block">
+                                        <a  href="{{ route('program', $program->slug) }}"  class="d-inline-block">
                                             <h2 class="blog-head" >
                                                 {{ $program->title }}
                                             </h2>
@@ -64,6 +61,9 @@
                         </div>
                     </div>
                 @endforeach
+                <div class="col-md-12 ">
+                        {{ $programs->links() }}
+                </div>
             </div>
 
         </div>

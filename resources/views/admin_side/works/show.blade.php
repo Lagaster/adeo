@@ -34,38 +34,30 @@
 
       <!-- Default box -->
       <div class="card">
-        <div class="card-header">
-          <span class="">
+        <div class="card-header  ">
+          <span class=" float-right">
             <a href="{{ route('works.index') }}" class="btn btn-primary mr-2">Back</a>
             <a href="{{ route('works.edit',$work->id) }}"
             class="btn btn-info mr-2"
                 >Edit</a>
             <a href="#"
             data-program-id="{{ $work->id }}"
-            onclick="deleteData(event, this)" class="btn btn-danger mr-2" 
+            onclick="deleteData(event, this)" class="btn btn-danger " 
                 >Delete</a>
             </span>
 
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
+         
         </div>
-        <div class="card-body">
+        <div class="card-body row">
             <div class="col-md-12">
                 <h3>{{ $work->title }}</h3>
             </div>
-         <div class="col-md-12">
+         <div class="col-md-6">
             <img   src="{{ $work->workAvatar() }}"
             class="img-fluid img-thumbnail"
              alt="{{ $work->title }}" >
          </div>
-            <div class="col-md-12">
-                <h3>Description</h3>
+            <div class="col-md-6">
                 @php
                     echo $work->description;
                 @endphp
@@ -73,13 +65,16 @@
         </div>
         
         <!-- /.card-body -->
-        <div class="card-footer d-flex justify-content-between ">
+        <div class="col-md-12 card-footer d-flex justify-content-between ">
             <div class="">
                  Created By: {{ $work->user->name }} <br> 
             </div>
             <div class="">
                 Created At: {{ $work->created_at->diffForHumans() }} <br>
             </div>
+            <div class="">
+              Created At: {{ $work->updated_at->diffForHumans() }} <br>
+          </div>
 
          
         </div>

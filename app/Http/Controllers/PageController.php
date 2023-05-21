@@ -20,14 +20,14 @@ class PageController extends Controller
     }
     public function programs(){
 
-        $programs =Program::orderBy('id','desc')->paginate(9);
-        $programside =Program::orderBy('id','desc')->paginate(4);
+        $programs =Program::query()->latest()->paginate(9);
+        $programside =Program::query()->latest()->take(4)->get();
         return view('client_side.programs',compact('programs','programside'));
     }
-    public function program($id){
+    public function program($slug){
 
-        $program =Program::find($id);
-        $programside =Program::orderBy('id','desc')->paginate(4);
+        $program =Program::query()->where('slug',$slug)->firstOrFail( );
+        $programside =Program::query()->latest()->take(4)->get();
         return view('client_side.program',compact('program','programside'));
     }
     public function works(){
@@ -36,10 +36,10 @@ class PageController extends Controller
         $workside =Program::orderBy('id','desc')->paginate(4);
         return view('client_side.works',compact('works','workside'));
     }
-    public function work($id){
+    public function work($slug){
 
-        $work =PreviousWork::find($id);
-        $workside =PreviousWork::orderBy('id','desc')->paginate(4);
+        $work =PreviousWork::query()->where('slug',$slug)->firstOrFail( );
+        $workside =PreviousWork::query()->latest()->take(4)->get();
         return view('client_side.work',compact('work','workside'));
     }
     public function whoweare(){
@@ -52,9 +52,7 @@ class PageController extends Controller
         return view('client_side.gallery',compact('images'));
     }
 
-    public function previousWork(){
-        return view('client_side.previouswork');
-    }
+    
 }
 
 
