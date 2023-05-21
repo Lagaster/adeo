@@ -23,6 +23,16 @@
             </a>
         </li>
         <li class="nav-item">
+            <a href="{{ route('works.index') }}" class="
+            {{ Request::is('admin/works*') ? 'active' : ''  }}
+            nav-link">
+                <i class="fa fa-tasks" aria-hidden="true"></i>
+                <p>
+                    Previous Works
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="{{ route('admin-blogs.index') }}" class="
             {{ Request::is('admin/admin-blogs*') ? 'active' : ''  }}
             nav-link">
