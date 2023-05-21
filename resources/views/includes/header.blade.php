@@ -17,7 +17,7 @@
                                         <li><a class="active" href="{{ route('page.index') }}">Home</a></li>
                                         {{-- <li><a href="{{route('whoweare')}}">Who we are?</a></li> --}}
                                         <li><a href="{{ route('programs') }}">Programs</a></li>
-                                        <li><a href="{{('works')}}">Prevous Works</a></li>
+                                        <li><a href="{{route('works')}}">Prevous Works</a></li>
                                          
                                        {{-- <li><a href=" ">Blogs</a>
                                             <ul class="submenu">
