@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
+use App\Models\PreviousWork;
 use App\Models\Program;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,18 @@ class PageController extends Controller
         $programside =Program::orderBy('id','desc')->paginate(4);
         return view('client_side.program',compact('program','programside'));
     }
+    public function works(){
+
+        $works =PreviousWork::orderBy('id','desc')->paginate(9);
+        $workside =Program::orderBy('id','desc')->paginate(4);
+        return view('client_side.works',compact('works','workside'));
+    }
+    public function work($id){
+
+        $work =PreviousWork::find($id);
+        $workside =PreviousWork::orderBy('id','desc')->paginate(4);
+        return view('client_side.work',compact('work','workside'));
+    }
     public function whoweare(){
         return view('client_side.whoweare');
     }
@@ -37,6 +50,10 @@ class PageController extends Controller
         $images =Gallery::orderBy('id','desc')->paginate(9);
         //dd($images);
         return view('client_side.gallery',compact('images'));
+    }
+
+    public function previousWork(){
+        return view('client_side.previouswork');
     }
 }
 

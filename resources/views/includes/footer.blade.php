@@ -23,9 +23,9 @@
 
                                 <ul class="footer-social">
                                     <li><a class="fb"target="_blank"
-                                            href="https://www.facebook.com/ADEORGANIZATION/"><i
+                                            href="http://www.facebook.com/adeoint"><i
                                                 class="fab fa-facebook" target="_blank"></i></a></li>
-                                    <li><a class="lnk" href="https://www.linkedin.com/in/adeo-int-b04007273" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                    <li><a class="lnk" href="https://www.linkedin.com/company/afrian-development-and-emergency-organisation/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                                     </li>
                                     <li><a class="ins" href="https://instagram.com/adeo_int?igshid=ZDdkNTZiNTM=" target="_blank"><i class="fab fa-instagram"></i></a>
                                     </li>

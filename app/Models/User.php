@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\PreviousWork;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
@@ -48,7 +49,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Program::class, 'created_by', 'id');
     }
-
+    public function previousWorks()
+    {
+        return $this->hasMany(PreviousWork::class, 'created_by', 'id');
+    }
     public function avatarView()
     {
         return $this->image !== 'default_user.png' ? asset('storage/images/users/'.$this->image) : asset('admin_asset/images/default_user.png');
