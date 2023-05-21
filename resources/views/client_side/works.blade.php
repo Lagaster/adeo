@@ -46,7 +46,7 @@
                             <a href="{{ route('work', $work->id) }}" target="_blank" rel="noopener noreferrer">
                                 <article class="blog_item">
                                     <div class="blog_item_img">
-                                        <img class="card-img rounded-0" src="{{ $work->workAvatar() }}" height="300px"
+                                        <img class="card-img rounded-0" src="{{ $work->workAvatar() ?? " "}}" height="300px"
                                             width="100%" alt="{{ $work->title }}" />
                                         {{--  <a href="#" class="blog_item_date">
                                             {{ $work->created_at }}
