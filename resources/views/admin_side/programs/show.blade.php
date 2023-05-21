@@ -6,6 +6,15 @@
 @push('css')
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('admin_asset/plugins/summernote/summernote-bs4.min.css') }}">
+  <style>
+      .programImage{
+          width: 400px;
+          height: 400px !important;
+          object-fit: cover;
+          position: relative;
+          object-position: center;
+      }
+  </style>
 @endpush
 
 @section('content')
@@ -42,6 +51,7 @@
                 >Edit</a>
             <a href="#"
             data-program-id="{{ $program->id }}"
+            data-url="{{ route('programs.destroy',$program->id) }}"
             onclick="deleteData(event, this)" class="btn btn-danger mr-2" 
                 >Delete</a>
             </span>
@@ -55,17 +65,17 @@
             </button>
           </div>
         </div>
-        <div class="card-body">
+        <div class="card-body row">
             <div class="col-md-12">
                 <h3>{{ $program->title }}</h3>
             </div>
-         <div class="col-md-12">
-            <img src="{{ $program->programAvatar() }}"
-            class="img-fluid img-thumbnail"
+         <div class="col-md-6 ">
+             <img src="{{ $program->programAvatar() }}"
+            class=" programImage"
              alt="{{ $program->title }}" >
+           
          </div>
-            <div class="col-md-12">
-                <h3>Description</h3>
+            <div class="col-md-6 ">
                 @php
                     echo $program->description;
                 @endphp
@@ -110,7 +120,7 @@
     function deleteData(event, element) {
             event.preventDefault();
             var id = $(element).data('program-id');
-            var url = '{{ route('programs.destroy', ':id') }}';
+            var url = $(element).data('url');
             url = url.replace(':id', id);
             Swal.fire({
                 title: 'Are you sure?',

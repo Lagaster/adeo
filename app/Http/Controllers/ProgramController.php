@@ -80,14 +80,13 @@ class ProgramController extends Controller
             // delete old image
             if ($program->image != 'default_program.png' && file_exists($image_path)) {
                 Storage::disk('public')->delete('images/programs/' . $program->image);
-            } else {
-                $data['image'] = $program->image;
-            }
+            } 
 
             // upload image 
             $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images/programs'), $imageName);
+            $request->image->move(storage_path('app/public/images/programs'), $imageName);
             $data['image'] = $imageName;
+
         }
         $data['slug'] = Str::of($data['title'])->slug('-');
         // $data['created_by'] = auth()->user()->id ;
@@ -110,7 +109,7 @@ class ProgramController extends Controller
             Storage::disk('public')->delete('images/programs/' . $program->image);
         } 
 
-        // $program->delete();
+        $program->delete();
 
         return response()->json([
             'statue' => true,
