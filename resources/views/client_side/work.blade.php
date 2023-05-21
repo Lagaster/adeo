@@ -1,5 +1,5 @@
 @extends('layouts.client')
-@section('title', 'ADEOINTL | ADEO| Program')
+@section('title', 'ADEOINTL | ADEO| Previous Work')
 @push('css')
     <style>
       .blog_right_sidebar .single_sidebar_widget{
@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-xl-5 col-lg-6 col-md-8">
             <div class="hero-caption hero-caption2">
-              <h2>Programs</h2>
+              <h2>Works</h2>
             </div>
           </div>
         </div>
@@ -49,22 +49,22 @@
                 <div class="blog_item_img">
                   <img
                     class="card-img rounded-0"
-                    src="{{ $program->programAvatar() }}" height="500px" width="100%"
+                    src="{{ $work->workAvatar() }}" height="500px" width="100%"
                     alt=""
                   />
                   {{--  <a href="#" class="blog_item_date">
-                    {{$program->created_at}}
+                    {{$work->created_at}}
                   </a>  --}}
                 </div>
                 <div class="blog_details">
                   <a class="d-inline-block" href="#">
                     <h2 class="blog-head" style="color: #2d2d2d">
-                      {{$program->title}}
+                      {{$work->title}}
                     </h2>
                   </a>
                   <p>
                     @php
-                    echo $program->description;
+                    echo $work->description;
                 @endphp
                     
                   </p>
@@ -77,17 +77,17 @@
           <div class="blog_right_sidebar">
             <aside class="single_sidebar_widget popular_post_widget">
               <h3 class="widget_title" style="color: #2d2d2d">
-                Recent Programs
+                Recent Privious Work
               </h3>
-            @foreach ($programside as $program)
+            @foreach ($workside as $work)
             {{--  <div class="media post_item ">  --}}
-              <a href="{{ route('program', $program->slug) }}"  class="recent_program">
-              <img src="{{ $program->programAvatar() }}" width="200" height="150" alt=" {{$program->title}}" />
+              <a href="{{ route('work', $work->slug) }}"  class="recent_program">
+              <img src="{{ $work->workAvatar() }}" width="200" height="150" alt=" {{$work->title}}" />
               <div class="media-body">
                   <h3 style="color: #2d2d2d">
-                    {{$program->title}}
+                    {{$work->title}}
                   </h3>
-                <p>{{$program->created_at->diffForHumans()}}</p>
+                <p>{{$work->created_at->diffForHumans()}}</p>
               </div>
             </a>
             {{--  </div>  --}}

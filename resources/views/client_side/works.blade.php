@@ -1,5 +1,5 @@
 @extends('layouts.client')
-@section('title', 'ADEOINTL | ADEO| Programs')
+@section('title', 'ADEOINTL | ADEO| Works')
 @push('css')
     <style>
         .blog_left_sidebar{
@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-xl-5 col-lg-6 col-md-8">
                         <div class="hero-caption hero-caption2">
-                            <h2>Programs</h2>
+                            <h2>Works</h2>
                         </div>
                     </div>
                 </div>
@@ -37,22 +37,27 @@
     <section class="blog_area section-padding">
         <div class="container">
             <div class="row">
-                @foreach ($programs as $program)
+                @foreach ($works as $work)
                     <div class="col-md-4">
                         <div class="blog_left_sidebar">
-                            <a href="{{ route('program', $program->slug) }}" target="_blank" rel="noopener noreferrer">
+
+
+
+                            <a href="{{ route('work', $work->slug) }}" target="_blank" 
+                                title="{{ $work->title }}"
+                                rel="noopener noreferrer">
                                 <article class="blog_item">
                                     <div class="blog_item_img">
-                                        <img class="card-img rounded-0" src="{{ $program->programAvatar() }}" height="300px"
-                                            width="100%" alt="{{ $program->title }}" />
+                                        <img class="card-img rounded-0" src="{{ $work->workAvatar() ?? " "}}" height="300px"
+                                            width="100%" alt="{{ $work->title }}" />
                                         {{--  <a href="#" class="blog_item_date">
-                                            {{ $program->created_at }}
+                                            {{ $work->created_at }}
                                         </a>  --}}
                                     </div>
                                     <div class="blog_details">
-                                        <a  href="{{ route('program', $program->slug) }}"  class="d-inline-block">
+                                        <a  href="{{ route('work', $work->slug) }}"  class="d-inline-block">
                                             <h2 class="blog-head" >
-                                                {{ $program->title }}
+                                                {{ $work->title }}
                                             </h2>
                                         </a>
                                     </div>
@@ -61,9 +66,6 @@
                         </div>
                     </div>
                 @endforeach
-                <div class="col-md-12 ">
-                        {{ $programs->links() }}
-                </div>
             </div>
 
         </div>

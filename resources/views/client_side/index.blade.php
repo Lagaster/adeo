@@ -13,7 +13,7 @@
                                     it!</h1>
                                 <P data-animation="fadeInUp" data-delay=".4s">African Development and Emergency Organization
                                     (ADEO) is registered in Kenya and its headquarters Nairobi.</P>
-                                <a href="{{ route('programs') }}" class="btn_1 hero-btn" data-animation="fadeInUp"
+                                <a href="{{ route('works') }}" class="btn_1 hero-btn" data-animation="fadeInUp"
                                     data-delay=".8s">ADEO PREVIOUS WORKS</a>
                             </div>
                         </div>
