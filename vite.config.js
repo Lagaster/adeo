@@ -8,7 +8,8 @@ export default defineConfig({
             input: [
                 'resources/sass/app.scss',
                 'resources/js/app.js',
-                'resources/js/profile_user.js'
+                'resources/js/profile_user.js',
+                'resources/js/messages.js',
             ],
             refresh: true,
         }),
