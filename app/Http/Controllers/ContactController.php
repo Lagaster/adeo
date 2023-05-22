@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Contact;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
 use Illuminate\Support\Facades\Notification;
@@ -16,16 +17,11 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts = Contact::query()->latest()->paginate(10);
+        return view('admin_side.contacts.index', compact('contacts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -36,9 +32,9 @@ class ContactController extends Controller
 
         //save data to database
        $contact = Contact::create($data);
-        // send email to all users
-        $users = User::all();
-        Notification::send($users, new \App\Notifications\ContactNotification($contact));
+        // send email to email address below
+        $email ="info@adeointl.org";
+        Notification::route('mail', $email)->notify(new ContactNotification($contact));
 
         return back()->with('success','Your message was successfully submitted.');
     }
@@ -46,32 +42,67 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Contact $contact)
+    public function show( $contactId)
     {
-        //
+         $contact = Contact::findOrFail($contactId);
+        $contact->update(['is_read' => true]);
+        return view('admin_side.contacts.show', compact('contact'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Contact $contact)
-    {
-        //
-    }
 
     /**
-     * Update the specified resource in storage.
+     * Remove the 
      */
-    public function update(UpdateContactRequest $request, Contact $contact)
+    public function destroy( Request $request  )
     {
-        //
+        $validated = $request->validate([
+            'contacts' => 'required|array',
+            'contacts.*' => 'required|integer',
+        ]);
+
+      DB::beginTransaction();
+        try {
+            Contact::destroy($validated['contacts']);
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error($e->getMessage());
+            if(request()->ajax()){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'An error occurred while deleting the message(s)'
+                ]);
+            }
+            return back()->with('error','An error occurred while deleting the message(s)');
+        }
+        
+        
+        // Contact::destroy($contactsId);
+        if(request()->ajax()){
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Message(s) deleted successfully'
+            ]);
+        }
+
+        return back()->with('success','Message(s) deleted successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Contact $contact)
+    public function markAllAsRead (Request $request)
     {
-        //
+        $validated = $request->validate([
+            'contacts' => 'required|array',
+            'contacts.*' => 'required|integer',
+        ]);
+
+        Contact::whereIn('id', $validated['contacts'])->update(['is_read' => true]);
+        if(request()->ajax()){
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Message(s) marked as read successfully'
+            ]);
+        }
+
+        return back()->with('success','Message(s) marked as read successfully');
     }
 }
