@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreContactRequest;
 use App\Models\Contact;
+use App\Notifications\ContactNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use App\Http\Requests\StoreContactRequest;
-use App\Http\Requests\UpdateContactRequest;
 use Illuminate\Support\Facades\Notification;
 
 class ContactController extends Controller
@@ -21,8 +21,6 @@ class ContactController extends Controller
         return view('admin_side.contacts.index', compact('contacts'));
     }
 
-
-
     /**
      * Store a newly created resource in storage.
      */
@@ -30,65 +28,73 @@ class ContactController extends Controller
     {
         $data = $request->validated();
 
-        //save data to database
-       $contact = Contact::create($data);
-        // send email to email address below
-        $email ="info@adeointl.org";
-        Notification::route('mail', $email)->notify(new ContactNotification($contact));
+        DB::beginTransaction();
+        try {
+            //save data to database
+            $contact = Contact::create($data);
+            // send email to email address below
+            $email = "info@adeointl.org";
+            Notification::route('mail', $email)->notify(new ContactNotification($contact));
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error($e->getMessage());
+            // with input will return the data the user entered
+            return back()->with('error', 'An error occurred while submitting your message')
+                ->withInput();
+        }
 
-        return back()->with('success','Your message was successfully submitted.');
+        return back()->with('success', 'Your message was successfully submitted.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show( $contactId)
+    public function show($contactId)
     {
-         $contact = Contact::findOrFail($contactId);
+        $contact = Contact::findOrFail($contactId);
         $contact->update(['is_read' => true]);
         return view('admin_side.contacts.show', compact('contact'));
     }
 
-
     /**
-     * Remove the 
+     * Remove the
      */
-    public function destroy( Request $request  )
+    public function destroy(Request $request)
     {
         $validated = $request->validate([
             'contacts' => 'required|array',
             'contacts.*' => 'required|integer',
         ]);
 
-      DB::beginTransaction();
+        DB::beginTransaction();
         try {
             Contact::destroy($validated['contacts']);
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error($e->getMessage());
-            if(request()->ajax()){
+            if (request()->ajax()) {
                 return response()->json([
                     'status' => 'error',
-                    'message' => 'An error occurred while deleting the message(s)'
+                    'message' => 'An error occurred while deleting the message(s)',
                 ]);
             }
-            return back()->with('error','An error occurred while deleting the message(s)');
+            return back()->with('error', 'An error occurred while deleting the message(s)');
         }
-        
-        
+
         // Contact::destroy($contactsId);
-        if(request()->ajax()){
+        if (request()->ajax()) {
             return response()->json([
                 'status' => 'success',
-                'message' => 'Message(s) deleted successfully'
+                'message' => 'Message(s) deleted successfully',
             ]);
         }
 
-        return back()->with('success','Message(s) deleted successfully');
+        return back()->with('success', 'Message(s) deleted successfully');
     }
 
-    public function markAllAsRead (Request $request)
+    public function markAllAsRead(Request $request)
     {
         $validated = $request->validate([
             'contacts' => 'required|array',
@@ -96,13 +102,13 @@ class ContactController extends Controller
         ]);
 
         Contact::whereIn('id', $validated['contacts'])->update(['is_read' => true]);
-        if(request()->ajax()){
+        if (request()->ajax()) {
             return response()->json([
                 'status' => 'success',
-                'message' => 'Message(s) marked as read successfully'
+                'message' => 'Message(s) marked as read successfully',
             ]);
         }
 
-        return back()->with('success','Message(s) marked as read successfully');
+        return back()->with('success', 'Message(s) marked as read successfully');
     }
 }
