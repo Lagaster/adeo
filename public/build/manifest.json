@@ -24,6 +24,11 @@
     "isEntry": true,
     "src": "resources/js/app.js"
   },
+  "resources/js/messages.js": {
+    "file": "assets/messages-5d6fe3a6.js",
+    "isEntry": true,
+    "src": "resources/js/messages.js"
+  },
   "resources/js/profile_user.js": {
     "file": "assets/profile_user-d09fd250.js",
     "imports": [

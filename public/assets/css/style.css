@@ -798,6 +798,14 @@ hr {
     z-index: 1;
     margin: 0px 14px;
 }
+.header-area .main-header .main-menu ul > li .active {
+    color: white !important ;
+    font-weight: bold  !important;
+    text-decoration: none  !important;
+    background-color: green;
+    border: 0px;
+    border-radius: 2rem !important;
+}
 .header-area .main-header .main-menu ul > li:last-child {
     margin: 0;
 }
@@ -3303,3 +3311,4 @@ del {
     background-color: green;
     color: white;
 }
+

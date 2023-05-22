@@ -11,7 +11,8 @@ class Contact extends Model
         'name',
         'email',
         'message',
-        'subject'
+        'subject',
+        'is_read',
     ];
     use HasFactory;
 }

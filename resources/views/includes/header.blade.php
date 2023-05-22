@@ -1,4 +1,10 @@
 <header>
+    @php
+function isActiveRoute($routeName)
+{
+    return request()->routeIs($routeName);
+}
+@endphp
     <div class="header-area ">
         <div class="main-header header-sticky ">
             <div class="header-bottom  header-sticky">
@@ -14,10 +20,16 @@
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="{{ route('page.index') }}">Home</a></li>
+                                        <li><a class="
+                                            {{ isActiveRoute('page.index') ? 'active' : '' }}
+                                            " href="{{ route('page.index') }}">Home</a></li>
                                         {{-- <li><a href="{{route('whoweare')}}">Who we are?</a></li> --}}
-                                        <li><a href="{{ route('programs') }}">Programs</a></li>
-                                        <li><a href="{{route('works')}}">Prevous Works</a></li>
+                                        <li><a 
+                                            class="{{ (isActiveRoute('programs') || isActiveRoute('program')) ? 'active' : '' }}"
+                                            href="{{ route('programs') }}">Programs</a></li>
+                                        <li><a 
+                                            class="{{ (isActiveRoute('works') || isActiveRoute('work')) ? 'active' : '' }}"
+                                            href="{{route('works')}}">Prevous Works</a></li>
                                          
                                        {{-- <li><a href=" ">Blogs</a>
                                             <ul class="submenu">
@@ -25,18 +37,26 @@
                                                 <li><a href="#">Contact Us</a></li>
                                             </ul>
                                         </li> --}}
-                                        <li><a href="{{ route('contact') }}">Contact Us</a></li>
+                                        <li><a
+                                            class="{{ isActiveRoute('contact') ? 'active' : '' }}"
+                                                href="{{ route('contact') }}">Contact Us</a>
+                                            </li>
+                                             
                                         <li>
                                             @auth
-                                                <a href="{{ route('home') }}"
-                                                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                                                <a 
+                                                class="{{ isActiveRoute('home') ? 'active' : '' }}"
+                                                href="{{ route('home') }}"
+                                                    >Dashboard</a>
                                             @endauth
 
                                             @guest
 
                                                 @if (Route::has('login'))
-                                                    <a href="{{ route('login') }}" target="_blank"
-                                                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Login</a>
+                                                    <a 
+                                                    class="{{ isActiveRoute('login') ? 'active' : '' }}"
+                                                    href="{{ route('login') }}" target="_blank"
+                                                        >Login</a>
                                                 @endif
                                             @endguest
                                         </li>

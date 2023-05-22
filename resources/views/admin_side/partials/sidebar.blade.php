@@ -16,7 +16,9 @@
             <a href="{{ route('programs.index') }}" class="
             {{ Request::is('admin/programs*') ? 'active' : ''  }}
             nav-link">
-                <i class="fa fa-tasks" aria-hidden="true"></i>
+               
+              
+               <i class="fa fa-user-secret" aria-hidden="true"></i>
                 <p>
                     Programs
                 </p>
@@ -27,6 +29,7 @@
             {{ Request::is('admin/works*') ? 'active' : ''  }}
             nav-link">
                 <i class="fa fa-tasks" aria-hidden="true"></i>
+
                 <p>
                     Previous Works
                 </p>
@@ -49,6 +52,18 @@
             <i class="fa fa-solid fa-image"></i>
                 <p>
                     Gallery
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('messages.index') }}" class="
+            {{ Request::is('admin/messages*') ? 'active' : ''  }}
+            nav-link">
+         
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+               
+                <p>
+                    Contacts Messages
                 </p>
             </a>
         </li>
