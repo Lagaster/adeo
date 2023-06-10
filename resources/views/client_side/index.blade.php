@@ -39,18 +39,14 @@
                         <div class="section-tittle mb-25">
                             <span>Introduction & background</span>
                             <h2>ADEO</h2>
-                            <p class="mb-30">African Development and Emergency Organization (ADEO) is registered in Kenya,
-                                with its headquarter
-                                in Nairobi and has representation/ presence in Kenya, Uganda, Sierra Leone, Southern Sudan
-                                and
-                                Somalia.
-                                ADEO has demonstrated ability to successfully implement major relief and development
-                                programs in the
-                                sectors of health and education, for the last 10 years as an implementing partner of Global
-                                Fund(Red
-                                Cross) , United Nations, USAID/FHI, USAID/PATH, NACC, private funding institutions, other
-                                donors
-                                and Governments of Kenya.</p>
+                            <p class="mb-30">
+                                African Development and Emergency Organization (ADEO) is registered in Kenya and its
+                                headquarters Nairobi. For the last fifteen years ADEO has demonstrated the ability to
+                                successfully implement major relief and development programs as an implementing partner.
+                                Our vision is to have a fair, healthy and informed society and our mission is to Improve the
+                                quality of life of the vulnerable and disadvantaged in the society through community
+                                empowerment and equity in Africa.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -91,7 +87,7 @@
     </section>
 
 
-    
+
 
     <section class="about-area1 section-padding">
         <div class="container">
@@ -125,7 +121,7 @@
         </div>
     </section>
 
-    
+
     <section class="about-area1 section-padding">
         <div class="container">
             <div class="row align-items-center">
@@ -137,33 +133,34 @@
                             <p class="mb-30">
                                 <li>
                                     ● Treatment, Care, and Support (TCS)
-    
+
                                 </li>
                                 <li>
                                     ● Prevention of Mother to Child Transmission (PMTCT)
-    
+
                                 </li>
                                 <li>
                                     ● Differentiated HIV Testing Services (DHTS)
-    
+
                                 </li>
                                 <li>
                                     ● Reducing Human Rights Related Barriers to HIV/TB services
-    
+
                                 </li>
                                 <li>
-                                    ● Resilient and Sustainable Systems for Health (RSSH): Health management information systems
+                                    ● Resilient and Sustainable Systems for Health (RSSH): Health management information
+                                    systems
                                     and M&E.
-    
+
                                 </li>
                                 <li>
                                     ● Adolescents and Young People (AYP)
-    
+
                                 </li>
-    
-                                </p>
+
+                            </p>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="w3-content w3-section" style="max-width:500px">
