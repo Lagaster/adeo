@@ -39,11 +39,10 @@ class ContactNotification extends Notification
     {
         return (new MailMessage)
                     ->greeting('Hello Admin')
-                    ->line('You have a new message from '.$this->contact->name)
+                    ->line('From: '.$this->contact->name . ' ('.$this->contact->email.')')
                     ->line('Subject: '.$this->contact->subject)
-                    ->line('Message: '.$this->contact->message)
-                    ->line('Email: '.$this->contact->email)
-                    // ->action('View Message', url('/admin/contacts'))
+                    ->line($this->contact->message)
+                    ->action('View Message', route('messages.show', $this->contact->id))
                     ->line('Thank you for using our application!');
 
     }

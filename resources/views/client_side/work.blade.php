@@ -1,5 +1,5 @@
 @extends('layouts.client')
-@section('title', 'ADEOINTL | ADEO| Program')
+@section('title', 'ADEOINTL | ADEO| Previous Work')
 @push('css')
     <style>
       .blog_right_sidebar .single_sidebar_widget{
@@ -77,17 +77,17 @@
           <div class="blog_right_sidebar">
             <aside class="single_sidebar_widget popular_post_widget">
               <h3 class="widget_title" style="color: #2d2d2d">
-                Recent Programs
+                Recent Privious Work
               </h3>
             @foreach ($workside as $work)
             {{--  <div class="media post_item ">  --}}
-              <a href="{{ route('work', $work->id) }}"  class="recent_program">
+              <a href="{{ route('work', $work->slug) }}"  class="recent_program">
               <img src="{{ $work->workAvatar() }}" width="200" height="150" alt=" {{$work->title}}" />
               <div class="media-body">
                   <h3 style="color: #2d2d2d">
                     {{$work->title}}
                   </h3>
-                {{--  <p>{{$work->created_at}}</p>  --}}
+                <p>{{$work->created_at->diffForHumans()}}</p>
               </div>
             </a>
             {{--  </div>  --}}

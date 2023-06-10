@@ -81,13 +81,13 @@
               </h3>
             @foreach ($programside as $program)
             {{--  <div class="media post_item ">  --}}
-              <a href="{{ route('program', $program->id) }}"  class="recent_program">
+              <a href="{{ route('program', $program->slug) }}"  class="recent_program">
               <img src="{{ $program->programAvatar() }}" width="200" height="150" alt=" {{$program->title}}" />
               <div class="media-body">
                   <h3 style="color: #2d2d2d">
                     {{$program->title}}
                   </h3>
-                {{--  <p>{{$program->created_at}}</p>  --}}
+                <p>{{$program->created_at->diffForHumans()}}</p>
               </div>
             </a>
             {{--  </div>  --}}

@@ -63,36 +63,40 @@ class PreviousWorkController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PreviousWork $previousWork)
+    public function edit( $previousWorkId)
     {
+        $previousWork = PreviousWork::findOrFail($previousWorkId);
         return view('admin_side.works.edit', compact('previousWork'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePreviousWorkRequest $request, PreviousWork $previousWork)
+    public function update(UpdatePreviousWorkRequest $request,  $previousWorkId)
     {
         $data = $request->validated();
+        $previousWork = PreviousWork::findOrFail($previousWorkId);
+        
         if ($request->hasFile('image')) {
             $image_path = storage_path('app/public/images/works' . $previousWork->image);
             // delete old image
             if ($previousWork->image != 'default_program.png' && file_exists($image_path)) {
                 Storage::disk('public')->delete('images/works/' . $previousWork->image);
-            } else {
-                $data['image'] = $previousWork->image;
-            }
+            } 
 
             // upload image 
             $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images/works'), $imageName);
+            $request->image->move(storage_path('app/public/images/works'), $imageName);
             $data['image'] = $imageName;
+
         }
         $data['slug'] = Str::of($data['title'])->slug('-');
         // $data['created_by'] = auth()->user()->id ;
         $previousWork->update($data);
-        Session::flash('success', 'Work Updated Successfully');
-        return redirect()->route('works.index');
+        Session::flash('success', 'Previous work Updated Successfully');
+        return redirect()->back();
+
+
     }
 
     /**
@@ -100,7 +104,7 @@ class PreviousWorkController extends Controller
      */
     public function destroy($previousWorkId)
     {
-        Log::info("PrevousWork Id : " . $previousWorkId);
+        Log::info("Prevous Work Id : " . $previousWorkId);
         $previousWork = PreviousWork::findOrFail($previousWorkId);
 
         $image_path = public_path('storage/images/works/' . $previousWork->image);
@@ -109,7 +113,7 @@ class PreviousWorkController extends Controller
             Storage::disk('public')->delete('images/works/' . $previousWork->image);
         } 
 
-        // $previousWork->delete();
+        $previousWork->delete();
 
         return response()->json([
             'statue' => true,

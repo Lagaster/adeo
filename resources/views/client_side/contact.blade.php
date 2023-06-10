@@ -21,13 +21,14 @@
                 <div class="col-12">
                     <h2 class="contact-title">Get in Touch</h2>
                 </div>
-                <div class="col-lg-8 contact-container">
+                <div id="contact-us" class="col-lg-8 contact-container">
                     @if (session('success'))
                         <div id="alert-success" class="alert alert-success alert-dismissible">
                             {{ session('success') }}
                         </div>
                     @endif
                     <form class="form-contact contact_form" action="{{ route('contacts.store') }}" method="post"
+                    id="contactForm"
                         enctype="multipart/form-data">
                         @csrf
                         @method('POST')

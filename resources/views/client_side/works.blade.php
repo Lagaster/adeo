@@ -43,7 +43,9 @@
 
 
 
-                            <a href="{{ route('work', $work->id) }}" target="_blank" rel="noopener noreferrer">
+                            <a href="{{ route('work', $work->slug) }}" target="_blank" 
+                                title="{{ $work->title }}"
+                                rel="noopener noreferrer">
                                 <article class="blog_item">
                                     <div class="blog_item_img">
                                         <img class="card-img rounded-0" src="{{ $work->workAvatar() ?? " "}}" height="300px"
@@ -53,7 +55,7 @@
                                         </a>  --}}
                                     </div>
                                     <div class="blog_details">
-                                        <a  href="{{ route('work', $work->id) }}"  class="d-inline-block">
+                                        <a  href="{{ route('work', $work->slug) }}"  class="d-inline-block">
                                             <h2 class="blog-head" >
                                                 {{ $work->title }}
                                             </h2>

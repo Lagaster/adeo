@@ -1,20 +1,15 @@
 @extends('layouts.admin')
 @section('title')
-    Admin Programs
+    Admin Contact Messages
 @endsection
 
 @push('css')
-  <!-- summernote -->
-  <link rel="stylesheet" href="{{ asset('admin_asset/plugins/summernote/summernote-bs4.min.css') }}">
-  <style>
-      .programImage{
-          width: 400px;
-          height: 400px !important;
-          object-fit: cover;
-          position: relative;
-          object-position: center;
-      }
-  </style>
+ <style>
+  .badge-large{
+    font-size: 1.2rem;
+
+  }
+ </style>
 @endpush
 
 @section('content')
@@ -25,13 +20,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Program </h1>
+            <h1>Work </h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ route('programs.index') }}">Programs</a></li>
-              <li class="breadcrumb-item active">Program Create</li>
+              <li class="breadcrumb-item"><a href="{{ route('messages.index') }}">messages</a></li>
+              <li class="breadcrumb-item active">Admin Contact Messages</li>
             </ol>
           </div>
         </div>
@@ -43,53 +38,51 @@
 
       <!-- Default box -->
       <div class="card">
-        <div class="card-header">
-          <span class="">
-            <a href="{{ route('programs.index') }}" class="btn btn-primary mr-2">Back</a>
-            <a href="{{ route('programs.edit',$program->id) }}"
-            class="btn btn-info mr-2"
-                >Edit</a>
+        <div class="card-header  ">
+          <div class="float-left">
+            @if ($contact->is_read)
+                <span class="badge badge-success badge-large ">Rread</span>
+                
+            @else
+                <span class="badge badge-danger badge-large ">Unread</span>
+                
+            @endif
+          </div>
+          
+          <span class=" float-right">
+            <a href="{{ route('messages.index') }}" class="btn btn-primary mr-2">Back</a>
+           
             <a href="#"
-            data-program-id="{{ $program->id }}"
-            data-url="{{ route('programs.destroy',$program->id) }}"
-            onclick="deleteData(event, this)" class="btn btn-danger mr-2" 
+            data-program-id="{{ $contact->id }}"
+            data-url = "{{ route('messages.destroy') }}"
+            onclick="deleteData(event, this)" class="btn btn-danger " 
                 >Delete</a>
             </span>
 
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
+         
         </div>
         <div class="card-body row">
-            <div class="col-md-12">
-                <h3>{{ $program->title }}</h3>
+          <div class="col-md-6">
+            <h4 class="">{{ $contact->name }}</h3>
+          </div>
+            <div class="col-md-6">
+                <h3>{{ $contact->subject  }}</h3>
             </div>
-         <div class="col-md-6 ">
-             <img src="{{ $program->programAvatar() }}"
-            class=" programImage"
-             alt="{{ $program->title }}" >
-           
-         </div>
-            <div class="col-md-6 ">
+         
+            <div class="col-md-12">
                 @php
-                    echo $program->description;
+                    echo $contact->message;
                 @endphp
             </div>
         </div>
         
         <!-- /.card-body -->
-        <div class="card-footer d-flex justify-content-between ">
+        <div class="col-md-12 card-footer d-flex justify-content-between ">
+            
             <div class="">
-                 Created By: {{ $program->user->name }} <br> 
+                Created At: {{ $contact->created_at->diffForHumans() }} <br>
             </div>
-            <div class="">
-                Created At: {{ $program->created_at->diffForHumans() }} <br>
-            </div>
+           
 
          
         </div>
@@ -121,7 +114,11 @@
             event.preventDefault();
             var id = $(element).data('program-id');
             var url = $(element).data('url');
-            url = url.replace(':id', id);
+            var token = $("meta[name='csrf-token']").attr("content");
+            var data = {
+              contacts: [id] ,
+                _token: token
+            };
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -134,24 +131,28 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         url: url,
-                        type: 'DELETE',
-                        data: {
-                            _token: '{{ csrf_token() }}'
-                        },
+                        type: 'POST',
+                        data: data,
                         success: function(response) {
                             Swal.fire(
                                 'Deleted!',
                                 response.message
                             ).then(() => {
-                                location.href = '{{ route('programs.index') }}'
+                                location.href = '{{ route('messages.index') }}'
                             })
 
 
                         },
                         error: function(error) {
+                          let errors = error.responseJSON.errors;
+                          let errorMessage = '';
+                          for (let key in errors) {
+                            errorMessage += errors[key] + '\n';
+                          }
+
                             Swal.fire(
                                 'Error!',
-                                "Error Occurred Please try again later."
+                                errorMessage,
                             )
                         }
                     });
